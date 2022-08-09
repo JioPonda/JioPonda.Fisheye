@@ -80,4 +80,71 @@
     };
     
     init();
+
+    // async function getPhotographers() {
+
+    //     fetch('../data/photographers.json')
+    //     .then (res => res.json())
+    //     .then (data => console.log(data))
     
+    // class photographerProfil {
+    //     constructor (photographers) {
+    //         this._name = photographers.name
+    //         this._id = photographers.id
+    //         this._city = photographers.city
+    //         this._country = photographers.country
+    //         this._tagline = photographers.tagline
+    //         this._price = photographers.price
+    //         this._portrait = photographers.portrait
+    //     }
+
+    //     get name() {
+    //         return this._name
+    //     }
+        
+    //     get id() {
+    //         return this._id
+    //     }
+        
+    //     get city() {
+    //         return this._tagline
+    //     }
+        
+    //     get country() {
+    //         return this.price
+    //     }
+        
+    //     get tagline() {
+    //         return this.tagline
+    //     }
+        
+    //     get price() {
+    //         return this.price
+    //     }
+        
+    //     get portrait() {
+    //         return this.portrait
+    //     }
+    // }
+
+    // for (i = 0 ; i < photographer.length; i++ ) {
+    //     return new photographerProfil
+    // }
+    
+    // async function displayData(photographers) {
+    //     const photographersSection = document.querySelector(".photographer_section");
+
+    //     photographers.forEach((photographer) => {
+    //         const photographerModel = photographerFactory(photographer);
+    //         const userCardDOM = photographerModel.getUserCardDOM();
+    //         photographersSection.appendChild(userCardDOM);
+    //     });
+    // };
+
+    // async function init() {
+    //     // Récupère les datas des photographes
+    //     const { photographers } = await getPhotographers();
+    //     displayData(photographers);
+    // };
+    
+    // init();
