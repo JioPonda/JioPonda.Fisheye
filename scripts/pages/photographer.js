@@ -12,17 +12,17 @@ async function getPhotographers() {
   return {photographers: [...photographers,]};
 }
 
-// Récupération des media des photographes dans le JSON
-async function getMedia() {
-  /** Attendre la récupération des données JSON */
-  await fetch("./data/photographers.json") 
-  /** Alors ce résultat est transformé en DATA (objet javascript) */
-  .then((res) => res.json()) 
-  /** Récupération dans DATA des données des media */
-  .then((data) => (media = data.media));
-  /** On retourne un tableau avec les données des media */
-  return {media: [...media,]};
-}
+// récupération de la chaine de requete dans l'url
+const queryString_url_id = window.location.search;
+console.log(queryString_url_id);
+
+// éxtraction de l'id
+const id = queryString_url_id.slice(1);
+console.log(id);
+
+// affichage du photographe sélectionné par l'ID
+const idPhotographe = Photographers.find((element) => element.id === id);
+console.log(idPhotographe);
 
 function photographerFactoryHead(data) {
   const [{ name, city, country, tagline, portrait }] = data;
@@ -67,3 +67,15 @@ async function init() {
 };
 
 init();
+
+// Récupération des media des photographes dans le JSON
+async function getMedia() {
+  /** Attendre la récupération des données JSON */
+  await fetch("./data/photographers.json") 
+  /** Alors ce résultat est transformé en DATA (objet javascript) */
+  .then((res) => res.json()) 
+  /** Récupération dans DATA des données des media */
+  .then((data) => (media = data.media));
+  /** On retourne un tableau avec les données des media */
+  return {media: [...media,]};
+}
