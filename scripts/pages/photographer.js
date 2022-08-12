@@ -55,7 +55,7 @@ function photographerFactoryHead(data) {
 
 async function displayDataPhotographers(photographers) {
   const photographersHeader = document.querySelector(".photograph-header")
-  console.log(photographers)
+  console.log(photographers.idPhotographers)
   const photographerProfil = photographerFactoryHead(photographers);
   const profilCardDOM = photographerProfil.getProfilHeader();
   photographersHeader.appendChild(profilCardDOM);
