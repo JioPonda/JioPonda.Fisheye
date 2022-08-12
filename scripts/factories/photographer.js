@@ -5,8 +5,7 @@ function photographerFactory(data) {
 
     function getUserCardDOM() {
         const a = document.createElement( 'a' );
-        a.setAttribute("onclic", "photograher_ID()")
-        a.setAttribute("href" , "photographer.html"+ "?" + id)
+        a.setAttribute("href" , "photographer.html?id="+ id)
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture )
