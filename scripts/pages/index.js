@@ -3,16 +3,12 @@
         await fetch(
             "./data/photographers.json"
           ) /** Attendre la récupération des données JSON */
-            .then((res) =>
-              res.json()
-            ) /** Alors ce résultat est transformé en DATA (objet javascript) */
-            .then(
-              (data) => (photographers = data.photographers)
-            ); /** Récupération dans DATA des données photographers */
-          return {
-            photographers: [
-              ...photographers,
-            ] /** On retourne un tableau avec les données des photographes */,
+          .then((res) => res.json()) 
+          /** Alors ce résultat est transformé en DATA (objet javascript) */
+          .then((data) => (photographers = data.photographers));
+          /** Récupération dans DATA des données photographers */
+          return {photographers: [...photographers,] 
+          /** On retourne un tableau avec les données des photographes */,
           };
     }
     

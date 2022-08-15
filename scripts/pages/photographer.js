@@ -1,81 +1,54 @@
 //Mettre le code JavaScript lié à la page photographer.html
 
-// Récupération des informations des photographes dans le JSON 
-async function getPhotographers() {  
-  /** Attendre la récupération des données JSON */
+/** ---------- FETCH DATA pour récupérer les infos des photographes du fichier JSON ---------- */
+async function getPhotographers() {
   await fetch("./data/photographers.json")
-  /** Alors ce résultat est transformé en DATA (objet javascript) */
-  .then((res) => res.json()) 
-  /** Récupération dans DATA des données photographers */
-  .then((data) => (photographers = data.photographers));
-  /** On retourne un tableau avec les données des photographes */
-  return {photographers: [...photographers,]};
-}
-
-// // récupération de la chaine de requete dans l'url
-// const queryString_url_id = window.location.search;
-// console.log(queryString_url_id);
-
-// // éxtraction de l'id
-// const id = queryString_url_id.slice(1);
-// console.log(id);
-
-// // affichage du photographe sélectionné par l'ID
-let params = (new URL(document.location)).searchParams;
-let idPhotographers = params.get('id');
-console.log(idPhotographers);
-
-function photographerFactoryHead(data) {
-  const [{ name, city, country, tagline, portrait }] = data;
-
-  const picture = `assets/photographers/photographers_ID_Photos/${portrait}`;
-
-  function getProfilHeader() {
-    const artcileProfil = document.createElement( 'article' );
-    const profilPicture = document.createElement( 'img' );
-    profilPicture.setAttribute("src", picture)
-    profilPicture.setAttribute("alt", "photo de " + name) 
-    const h2 = document.createElement( 'h2' );
-    h2.textContent = name;
-    const h3 = document.createElement( 'h3' );
-    h3.textContent = city + " , " + country;
-    const h4 = document.createElement( 'h4' );
-    h4.textContent = tagline; 
-    artcileProfil.appendChild(profilPicture)
-    artcileProfil.appendChild(h2)
-    artcileProfil.appendChild(h3)
-    artcileProfil.appendChild(h4)
-
-
-    return (artcileProfil);
-  
-  }
-  return { name, picture, getProfilHeader }
-}
-
-async function displayDataPhotographers(photographers) {
-  const photographersHeader = document.querySelector(".photograph-header")
-  console.log(photographers.idPhotographers)
-  const photographerProfil = photographerFactoryHead(photographers);
-  const profilCardDOM = photographerProfil.getProfilHeader();
-  photographersHeader.appendChild(profilCardDOM);
+    .then((res) => res.json())
+    .then((data) => (photographers = data.photographers));
+  return {
+    photographers: [...photographers],
   };
+}
 
-async function init() {
-  const { photographers } = await getPhotographers();
-  displayDataPhotographers(photographers);
-};
+/** ---------- Récupération et transformation en nombre de l'ID de la page photographe.html ---------- */
+function getPhotographerId() {
+  return parseInt(new URLSearchParams(window.location.search).get("id"));
+}
 
-init();
+/** ---------- Affichage du profil du photographe sur la page photographer.html ---------- */
+function displayProfil() {
+  const photographerProfilContainer =
+    document.querySelector(".photograph-header");
+  const widget = document.querySelector(".widget");
+  const contact = document.querySelector(".nameContact");
 
-// // Récupération des media des photographes dans le JSON
-// async function getMedia() {
-//   /** Attendre la récupération des données JSON */
-//   await fetch("./data/photographers.json") 
-//   /** Alors ce résultat est transformé en DATA (objet javascript) */
-//   .then((res) => res.json()) 
-//   /** Récupération dans DATA des données des media */
-//   .then((data) => (media = data.media));
-//   /** On retourne un tableau avec les données des media */
-//   return {media: [...media,]};
-// }
+  /** Boucle dans les photographes */
+  photographers.forEach((photographer) => {
+    if (photographer.id === getPhotographerId()) {
+      // Si l'id du photographe est égal à l'id de l'URL de la page photophapher.html
+      const photographerModelPage = photographerFactory(photographer);
+      const userCardDOMPage = photographerModelPage.getUserCardDOMPage();
+      photographerProfilContainer.appendChild(userCardDOMPage);
+
+      /** ---------- Affichage du widget ---------- */
+      const widgetDisplay = photographerModelPage.getUserCounterDOM();
+      widget.appendChild(widgetDisplay);
+
+      /** ---------- Affichage du formulaire de contact ---------- */
+      const contactDisplay = photographerModelPage.getUserContactDOM();
+      contact.appendChild(contactDisplay);
+    }
+  });
+}
+
+/** ---------- Initialisation pour l'affichage des données du photographe sur la page photographer.html ---------- */
+async function initPage() {
+  const { photographers } =
+    await getPhotographers(); /** Récupère les données du photographe avant affichage */
+  displayProfil(
+    photographers
+  ); /** Appel de la fonction d'affichage des données */
+}
+
+/** ---------- Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html ---------- */
+initPage();
