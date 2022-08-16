@@ -115,7 +115,11 @@ function mediaFactory(data) {
     /** nombres de likes */
     const numberOfLike = document.createElement("h3");
     numberOfLike.textContent = likes;
+    divmedia.appendChild(iPicture);
+    divmedia.appendChild(iTitle);
+    divmedia.appendChild(numberOfLike);
 
+    return (divmedia)
   }
   return {picture , getMediaCardDOMPage}
 }
@@ -129,9 +133,9 @@ function displayMedia() {
   photographers.forEach((media) => {
     if (media.id === getPhotographerId()) {
       // Si l'id du Media est égal à l'id de l'URL de la page photophapher.html
-      const photographerModelPage = mediaFactory(media);
-      const userCardDOMPage = photographerModelPage.getMediaCardDOMPage();
-      photographerProfilContainer.appendChild(userCardDOMPage);
+      const mediaModelPage = mediaFactory(media);
+      const mediaCardDOMPage = mediaModelPage.getMediaCardDOMPage();
+      photographerMediaContainer.appendChild(mediaCardDOMPage);
     };
   })
 }
