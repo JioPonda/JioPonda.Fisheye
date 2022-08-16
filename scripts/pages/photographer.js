@@ -94,9 +94,9 @@ async function getMedia() {
 }
 
 function mediaFactory(data) {
-  const { name, title, likes} = data;
+  const { name, title, image, likes} = data;
 
-  const picture = `assets/photographers/${name}/${title}`;
+  const picture = `assets/photographers/${name}/${image}`;
 
   function getMediaCardDOMPage() {
     const divmedia = document.createElement("div"); 
@@ -115,7 +115,7 @@ function mediaFactory(data) {
 
     return (divmedia)
   }
-  return {picture , getMediaCardDOMPage}
+  return {getMediaCardDOMPage}
 }
 
 /** ---------- Affichage des photos sur la page photographer.html ---------- */
@@ -124,7 +124,7 @@ function displayMedia() {
   // const widget = document.querySelector(".widget");
 
   /** Boucle dans les photographes */
-  photographers.forEach((media) => {
+  media.forEach((media) => {
     if (media.id === getPhotographerId()) {
       // Si l'id du Media est égal à l'id de l'URL de la page photophapher.html
       const mediaModelPage = mediaFactory(media);
@@ -136,3 +136,15 @@ function displayMedia() {
     };
   })
 }
+
+/** ---------- Initialisation pour l'affichage des données des media sur la page photographer.html ---------- */
+async function initMedia() {
+  const { media } =
+    await getMedia(); /** Récupère les données des Medias avant affichage */
+  displayMedia(
+    media
+  ); /** Appel de la fonction d'affichage des données */
+}
+
+/** ---------- Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html ---------- */
+initMedia();
