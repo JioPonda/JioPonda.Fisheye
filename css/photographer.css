@@ -53,6 +53,20 @@ h1 {
     border-radius: 200px;
 }
 
+.photographer_section div {
+    margin: 0% 0% 0% 2vw;
+}
+
+.photographer_section div img {
+    height: 300px ;
+    width: 350px ;
+}
+
+.photographer_section div h2 {
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 400;
+}
 
 .contact_button {
     position: absolute;
