@@ -94,12 +94,13 @@ async function getMedia() {
 }
 
 function mediaFactory(data) {
-  const { name, title, image, likes} = data;
+  const { photographerId, title, image, video, likes} = data;
 
-  const picture = `assets/photographers/${name}/${image}`;
+  const picture = `assets/photographers/${photographerId}/${image}`;
+  const moovie = `assets/photographers/${photographerId}/${video}` ;
 
   function getMediaCardDOMPage() {
-    const divmedia = document.createElement("div"); 
+    const divMedia = document.createElement("div"); 
     /** photo du photographe */
     const iPicture = document.createElement("img");
     iPicture.setAttribute("src", picture)
@@ -109,13 +110,35 @@ function mediaFactory(data) {
     /** nombres de likes */
     const numberOfLike = document.createElement("h3");
     numberOfLike.textContent = likes;
-    divmedia.appendChild(iPicture);
-    divmedia.appendChild(iTitle);
-    divmedia.appendChild(numberOfLike);
+    divMedia.appendChild(iPicture);
+    divMedia.appendChild(iTitle);
+    divMedia.appendChild(numberOfLike);
 
-    return (divmedia)
+    return (divMedia)
   }
-  return {getMediaCardDOMPage}
+
+  function getVideoCardDOMPage() {
+    const divVideo = document.createElement("div");
+    /** Vidéo du photographe */
+    const iVidéo = document.createElement("video") 
+    iVidéo.setAttribute("controls" , "muted" )
+    iVidéo.setAttribute("src", moovie,)
+    iVidéo.setAttribute( "type" ,"video/mp4")
+    /** Titre de la vidéo */
+    const vTitle = document.createElement("h2");
+    vTitle.textContent = title;
+    /** nombres de likes */
+    const numberOfLikeV = document.createElement("h3");
+    numberOfLikeV.textContent = likes;
+    divVideo.appendChild(iVidéo);
+    divVideo.appendChild(vTitle);
+    divVideo.appendChild(numberOfLikeV);
+
+    return (divVideo)
+  }
+
+
+  return {getMediaCardDOMPage , getVideoCardDOMPage}
 }
 
 /** ---------- Affichage des photos sur la page photographer.html ---------- */
@@ -128,7 +151,9 @@ function displayMedia() {
     if (media.photographerId === getPhotographerId()) {
       // Si l'id du Media est égal à l'id de l'URL de la page photophapher.html
       const mediaModelPage = mediaFactory(media);
+      const videoCardDOMPage = mediaModelPage.getVideoCardDOMPage();
       const mediaCardDOMPage = mediaModelPage.getMediaCardDOMPage();
+      photographerMediaContainer.appendChild(videoCardDOMPage);
       photographerMediaContainer.appendChild(mediaCardDOMPage);
       // /** ---------- Affichage du widget ---------- */
       // const widgetDisplay = photographerModelPage.getUserCounterDOM();
