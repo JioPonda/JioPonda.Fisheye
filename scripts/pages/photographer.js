@@ -120,16 +120,15 @@ initPage();
 //   return {picture , getMediaCardDOMPage}
 // }
 
-// /** ---------- Affichage du profil du photographe sur la page photographer.html ---------- */
-// function displayProfil() {
-//   const photographerProfilContainer = document.querySelector(".photographer_section");
+// /** ---------- Affichage des photos sur la page photographer.html ---------- */
+// function displayMedia() {
+//   const photographerMediaContainer = document.querySelector(".photographer_section");
 //   // const widget = document.querySelector(".widget");
-//   // const contact = document.querySelector(".nameContact");
 
 //   /** Boucle dans les photographes */
 //   photographers.forEach((media) => {
 //     if (media.id === getPhotographerId()) {
-//       // Si l'id du photographe est égal à l'id de l'URL de la page photophapher.html
+//       // Si l'id du Media est égal à l'id de l'URL de la page photophapher.html
 //       const photographerModelPage = mediaFactory(media);
 //       const userCardDOMPage = photographerModelPage.getMediaCardDOMPage();
 //       photographerProfilContainer.appendChild(userCardDOMPage);
