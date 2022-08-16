@@ -86,3 +86,53 @@ async function initPage() {
 
 /** ---------- Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html ---------- */
 initPage();
+
+
+
+// /** ---------- FETCH DATA pour récupérer les medias des photographes du fichier JSON ---------- */
+// async function getMedia() {
+//   await fetch("./data/photographers.json")
+//     .then((res) => res.json())
+//     .then((data) => (media = data.media));
+//   return {
+//     media: [...media],
+//   };
+// }
+
+// function mediaFactory(data) {
+//   const { name, title, likes, } = data;
+
+//   const picture = `assets/photographers/${title}`;
+
+//   function getMediaCardDOMPage() {
+//     const divmedia = document.createElement("div"); 
+//     /** photo du photographe */
+//     const iPicture = document.createElement("img");
+//     iPicture.setAttribute("src", picture)
+//     /** Titre de la photo */
+//     const iTitle = document.createElement("h2");
+//     iTitle.textContent = title;
+//     /** nombres de likes */
+//     const numberOfLike = document.createElement("h3");
+//     numberOfLike.textContent = likes;
+
+//   }
+//   return {picture , getMediaCardDOMPage}
+// }
+
+// /** ---------- Affichage du profil du photographe sur la page photographer.html ---------- */
+// function displayProfil() {
+//   const photographerProfilContainer = document.querySelector(".photographer_section");
+//   // const widget = document.querySelector(".widget");
+//   // const contact = document.querySelector(".nameContact");
+
+//   /** Boucle dans les photographes */
+//   photographers.forEach((media) => {
+//     if (media.id === getPhotographerId()) {
+//       // Si l'id du photographe est égal à l'id de l'URL de la page photophapher.html
+//       const photographerModelPage = mediaFactory(media);
+//       const userCardDOMPage = photographerModelPage.getMediaCardDOMPage();
+//       photographerProfilContainer.appendChild(userCardDOMPage);
+//     };
+//   })
+// }
