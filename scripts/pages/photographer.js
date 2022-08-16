@@ -57,8 +57,6 @@ function photographerFactory(data) {
 /** ---------- Affichage du profil du photographe sur la page photographer.html ---------- */
 function displayProfil() {
   const photographerProfilContainer = document.querySelector(".photograph-header");
-  // const widget = document.querySelector(".widget");
-  // const contact = document.querySelector(".nameContact");
 
   /** Boucle dans les photographes */
   photographers.forEach((photographer) => {
@@ -67,10 +65,6 @@ function displayProfil() {
       const photographerModelPage = photographerFactory(photographer);
       const userCardDOMPage = photographerModelPage.getUserCardDOMPage();
       photographerProfilContainer.appendChild(userCardDOMPage);
-
-    //   /** ---------- Affichage du widget ---------- */
-    //   const widgetDisplay = photographerModelPage.getUserCounterDOM();
-    //   widget.appendChild(widgetDisplay);
     };
   })
 }
@@ -136,6 +130,9 @@ function displayMedia() {
       const mediaModelPage = mediaFactory(media);
       const mediaCardDOMPage = mediaModelPage.getMediaCardDOMPage();
       photographerMediaContainer.appendChild(mediaCardDOMPage);
+      // /** ---------- Affichage du widget ---------- */
+      // const widgetDisplay = photographerModelPage.getUserCounterDOM();
+      // widget.appendChild(widgetDisplay);     
     };
   })
 }
