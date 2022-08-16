@@ -15,12 +15,50 @@ function getPhotographerId() {
   return parseInt(new URLSearchParams(window.location.search).get("id"));
 }
 
+/** ---------- CREATION DU GABARIT DU HEADER DE LA PAGE PHOTOGRAHER.HTML - PRESENTATION DU PHOTOGRAPHE ---------- */
+
+function photographerFactory(data) {
+  const { name, city, country, tagline , portrait , } = data;
+
+  const picture = `assets/photographers/photographers_ID_Photos/${portrait}`;
+
+  function getUserCardDOMPage() {
+    const articlePage = document.createElement("section");
+    const divProfil = document.createElement("div");
+  
+    /** Nom du photographe */
+    const h1Page = document.createElement("h1");
+    h1Page.textContent = name;
+  
+    /** Ville du photographe */
+    const h2Page = document.createElement("h2");
+    h2Page.textContent = city + ", " + country;
+  
+    /** Citation du photographe */
+    const h3Page = document.createElement("h3");
+    h3Page.textContent = tagline;
+  
+    /** Portrait du photographe */
+    const imgPage = document.createElement("img");
+    imgPage.setAttribute("src", picture);
+    imgPage.setAttribute("alt", "portrait du photographe");
+  
+    articlePage.appendChild(divProfil);
+    divProfil.appendChild(h1Page);
+    divProfil.appendChild(h2Page);
+    divProfil.appendChild(h3Page);
+    articlePage.appendChild(imgPage);
+    return articlePage;
+  }
+  return {name , picture , getUserCardDOMPage}
+}
+
+
 /** ---------- Affichage du profil du photographe sur la page photographer.html ---------- */
 function displayProfil() {
-  const photographerProfilContainer =
-    document.querySelector(".photograph-header");
-  const widget = document.querySelector(".widget");
-  const contact = document.querySelector(".nameContact");
+  const photographerProfilContainer = document.querySelector(".photograph-header");
+  // const widget = document.querySelector(".widget");
+  // const contact = document.querySelector(".nameContact");
 
   /** Boucle dans les photographes */
   photographers.forEach((photographer) => {
@@ -30,15 +68,11 @@ function displayProfil() {
       const userCardDOMPage = photographerModelPage.getUserCardDOMPage();
       photographerProfilContainer.appendChild(userCardDOMPage);
 
-      /** ---------- Affichage du widget ---------- */
-      const widgetDisplay = photographerModelPage.getUserCounterDOM();
-      widget.appendChild(widgetDisplay);
-
-      /** ---------- Affichage du formulaire de contact ---------- */
-      const contactDisplay = photographerModelPage.getUserContactDOM();
-      contact.appendChild(contactDisplay);
-    }
-  });
+    //   /** ---------- Affichage du widget ---------- */
+    //   const widgetDisplay = photographerModelPage.getUserCounterDOM();
+    //   widget.appendChild(widgetDisplay);
+    };
+  })
 }
 
 /** ---------- Initialisation pour l'affichage des données du photographe sur la page photographer.html ---------- */
