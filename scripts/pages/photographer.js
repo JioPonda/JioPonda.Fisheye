@@ -125,7 +125,7 @@ function displayMedia() {
 
   /** Boucle dans les photographes */
   media.forEach((media) => {
-    if (media.id === getPhotographerId()) {
+    if (media.photographerId === getPhotographerId()) {
       // Si l'id du Media est égal à l'id de l'URL de la page photophapher.html
       const mediaModelPage = mediaFactory(media);
       const mediaCardDOMPage = mediaModelPage.getMediaCardDOMPage();
