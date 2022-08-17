@@ -1,21 +1,19 @@
 //Mettre le code JavaScript lié à la page photographer.html
 
-/** ---------- FETCH DATA pour récupérer les infos des photographes du fichier JSON ---------- */
+/**  FETCH DATA pour récupérer les infos des photographes du fichier JSON */
 async function getPhotographers() {
   await fetch("./data/photographers.json")
     .then((res) => res.json())
     .then((data) => (photographers = data.photographers));
-  return {
-    photographers: [...photographers],
-  };
+  return {photographers: [...photographers],};
 }
 
-/** ---------- Récupération et transformation en nombre de l'ID de la page photographe.html ---------- */
+/**  Récupération et transformation en nombre de l'ID de la page photographe.html  */
 function getPhotographerId() {
   return parseInt(new URLSearchParams(window.location.search).get("id"));
 }
 
-/** ---------- CREATION DU GABARIT DU HEADER DE LA PAGE PHOTOGRAHER.HTML - PRESENTATION DU PHOTOGRAPHE ---------- */
+/**  CREATION DU GABARIT DU HEADER DE LA PAGE PHOTOGRAHER.HTML - PRESENTATION DU PHOTOGRAPHE  */
 
 function photographerFactory(data) {
   const { name, city, country, tagline , portrait , } = data;
@@ -51,10 +49,9 @@ function photographerFactory(data) {
     return articlePage;
   }
   return {name , picture , getUserCardDOMPage}
-}
+} 
 
-
-/** ---------- Affichage du profil du photographe sur la page photographer.html ---------- */
+/**  Affichage du profil du photographe sur la page photographer.html  */
 function displayProfil() {
   const photographerProfilContainer = document.querySelector(".photograph-header");
 
@@ -69,7 +66,7 @@ function displayProfil() {
   })
 }
 
-/** ---------- Initialisation pour l'affichage des données du photographe sur la page photographer.html ---------- */
+/**  Initialisation pour l'affichage des données du photographe sur la page photographer.html  */
 async function initPage() {
   const { photographers } =
     await getPhotographers(); /** Récupère les données du photographe avant affichage */
@@ -78,12 +75,10 @@ async function initPage() {
   ); /** Appel de la fonction d'affichage des données */
 }
 
-/** ---------- Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html ---------- */
+/** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html  */
 initPage();
 
-
-
-/** ---------- FETCH DATA pour récupérer les medias des photographes du fichier JSON ---------- */
+/** FETCH DATA pour récupérer les medias des photographes du fichier JSON  */
 async function getMedia() {
   await fetch("./data/photographers.json")
     .then((res) => res.json())
@@ -103,6 +98,7 @@ function mediaFactory(data) {
     const divMedia = document.createElement("div");
     /** Vidéo du photographe */
     const iVideo = document.createElement("video");
+    iVideo.setAttribute("class" , "video")
     iVideo.setAttribute("controls" , "muted")
     iVideo.setAttribute("width" , "350px")
     iVideo.setAttribute("height" , "300px")
@@ -129,10 +125,9 @@ function mediaFactory(data) {
   return {getMediaCardDOMPage};
 }
 
-/** ---------- Affichage des photos sur la page photographer.html ---------- */
+/** Affichage des photos sur la page photographer.html */
 function displayMedia() {
   const photographerMediaContainer = document.querySelector(".photographer_section");
-  // const widget = document.querySelector(".widget");
 
   /** Boucle dans les photographes */
   media.forEach((media) => {
@@ -140,15 +135,12 @@ function displayMedia() {
       // Si l'id du Media est égal à l'id de l'URL de la page photophapher.html
       const mediaModelPage = mediaFactory(media);
       const mediaCardDOMPage = mediaModelPage.getMediaCardDOMPage();
-      photographerMediaContainer.appendChild(mediaCardDOMPage);
-      // /** ---------- Affichage du widget ---------- */
-      // const widgetDisplay = photographerModelPage.getUserCounterDOM();
-      // widget.appendChild(widgetDisplay);     
+      photographerMediaContainer.appendChild(mediaCardDOMPage);    
     };
   })
 }
 
-/** ---------- Initialisation pour l'affichage des données des media sur la page photographer.html ---------- */
+/**  Initialisation pour l'affichage des données des media sur la page photographer.html */
 async function initMedia() {
   const { media } =
     await getMedia(); /** Récupère les données des Medias avant affichage */
@@ -157,5 +149,35 @@ async function initMedia() {
   ); /** Appel de la fonction d'affichage des données */
 }
 
-/** ---------- Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html ---------- */
+/** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html */
 initMedia();
+
+
+/** CREATION DU WIDGET DE LA PAGE PHOTOGRAPHER.HTML */ 
+
+function widgetFactory (data) {
+  const price = data; 
+
+  function getWidgetCardDOMPage() {
+    const widget = document.createElement("div");
+    /** Prix par jour */ 
+    const pricePerDay = document.createElement("p");
+    pricePerDay.textContent = price + "/ jour";
+    widget.appendChild(pricePerDay)
+
+    return (widget);
+  }
+  return getWidgetCardDOMPage;
+}
+
+/** Affichage du widget sur la page photographer.html */ 
+
+function displayWidget(data) {
+  const widgetContainer = document.querySelector(".photographer_section");
+  const widgetModelPage = widgetFactory(data);
+  const widgetCardDOMPage = widgetModelPage.getWidgetCardDOMPage();
+  widgetContainer.appendChild(widgetCardDOMPage);
+};
+
+/** Appel de la fonction pour l'affichage du widget */ 
+displayWidget();

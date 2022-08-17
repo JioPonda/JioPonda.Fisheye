@@ -62,6 +62,10 @@ h1 {
     font-weight: 400;
 }
 
+.video {
+    background-color: black;
+}
+
 .contact_button {
     position: absolute;
     font-size: 20px;
