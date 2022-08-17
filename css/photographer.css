@@ -39,7 +39,6 @@ h1 {
     align-items: center;
     background-color: #DB8876;
     margin: 131vh 0 0 68vw;
-    z-index: 2;
 }
 
 .widget p {
@@ -99,6 +98,21 @@ h1 {
     margin: 117px 0% 0% 37vw;
 }
 
+.send_button {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 55px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 478px 0% 0% 0vw;
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -107,7 +121,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
+    padding: 45px;
     margin: auto;
 }
 

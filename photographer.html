@@ -27,10 +27,16 @@
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="firstName">Prénom</label>
+						<input id="firstName" type="text"/>
+            <label for="lastName">Nom</label>
+            <input id="lastName" type="text"/>
+            <label for="email">Email</label>
+            <input id="email" type="text" />
+            <label for="message">Votre message</label>
+            <input id="message" type="text" />
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button type="reset" class="send_button" onclick="sendInfos() + closeModal()">Envoyer</button>
 				</form>
 			</div>
 		</div>

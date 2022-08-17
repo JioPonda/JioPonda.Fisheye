@@ -159,32 +159,17 @@ async function initMedia() {
 /** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html */
 initMedia();
 
+/** création de la function de récupération des données saisie dans la modal */ 
+function sendInfos () {
+  const labelFirst = document.getElementById("firstName").value;
+  const labelLast = document.getElementById("lastName").value;
+  const labelEmail = document.getElementById("email").value;
+  const labelMessage = document.getElementById("message").value;
+  console.log(labelFirst , labelLast , labelEmail , labelMessage);
+}
 
-// /** CREATION DU WIDGET DE LA PAGE PHOTOGRAPHER.HTML */ 
+function redirection() {
+  window.location.replace = ("photographer.html?id="+ getPhotographerId());
+}
 
-// function widgetFactory (data) {
-//   const price = data; 
-
-//   function getWidgetCardDOMPage() {
-//     const widget = document.createElement("div");
-//     /** Prix par jour */ 
-//     const pricePerDay = document.createElement("p");
-//     pricePerDay.textContent = price + "/ jour";
-//     widget.appendChild(pricePerDay)
-
-//     return (widget);
-//   }
-//   return getWidgetCardDOMPage;
-// }
-
-// /** Affichage du widget sur la page photographer.html */ 
-
-// function displayWidget(data) {
-//   const widgetContainer = document.querySelector(".photographer_section");
-//   const widgetModelPage = widgetFactory(data);
-//   const widgetCardDOMPage = widgetModelPage.getWidgetCardDOMPage();
-//   widgetContainer.appendChild(widgetCardDOMPage);
-// };
-
-// /** Appel de la fonction pour l'affichage du widget */ 
-// displayWidget();
+console.log(window.location.href);
