@@ -21,12 +21,30 @@ h1 {
     align-items: center;
 }
 
-.photograph-header section div {
+.divProfil {
     display: flex;
     flex-direction: column;
     height: 250px;
     width: 20vw;
     margin: 80px 0% 0% 5vw;
+}
+
+.widget {
+    height: 50px;
+    width: 376px;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #DB8876;
+    margin: 131vh 0 0 68vw;
+    z-index: 2;
+}
+
+.widget p {
+    font-weight: 500;
+    font-size: 24px;
 }
 
 .photograph-header section div h1 {

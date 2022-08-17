@@ -16,13 +16,16 @@ function getPhotographerId() {
 /**  CREATION DU GABARIT DU HEADER DE LA PAGE PHOTOGRAHER.HTML - PRESENTATION DU PHOTOGRAPHE  */
 
 function photographerFactory(data) {
-  const { name, city, country, tagline , portrait , } = data;
+  const { name, city, country, tagline , portrait , price } = data;
 
   const picture = `assets/photographers/photographers_ID_Photos/${portrait}`;
 
   function getUserCardDOMPage() {
     const articlePage = document.createElement("section");
     const divProfil = document.createElement("div");
+    divProfil.setAttribute("class" , "divProfil")
+    const divWidget = document.createElement("div")
+    divWidget.setAttribute( "class" , "widget")
   
     /** Nom du photographe */
     const h1Page = document.createElement("h1");
@@ -41,7 +44,13 @@ function photographerFactory(data) {
     imgPage.setAttribute("src", picture);
     imgPage.setAttribute("alt", "portrait du photographe");
   
+    /** Widget*/
+    const pricePerDay = document.createElement("p")
+    pricePerDay.textContent = price + "€ / jour" 
+
     articlePage.appendChild(divProfil);
+    articlePage.appendChild(divWidget);
+    divWidget.appendChild(pricePerDay);
     divProfil.appendChild(h1Page);
     divProfil.appendChild(h2Page);
     divProfil.appendChild(h3Page);
@@ -116,9 +125,7 @@ function mediaFactory(data) {
       } else {
         return divMedia.appendChild(iVideo);
       }
-    }); 
-    // divMedia.appendChild(iVideo);
-    // divMedia.appendChild(iPicture);
+    });
     divMedia.appendChild(iTitle);
     return (divMedia);
   }
@@ -153,31 +160,31 @@ async function initMedia() {
 initMedia();
 
 
-/** CREATION DU WIDGET DE LA PAGE PHOTOGRAPHER.HTML */ 
+// /** CREATION DU WIDGET DE LA PAGE PHOTOGRAPHER.HTML */ 
 
-function widgetFactory (data) {
-  const price = data; 
+// function widgetFactory (data) {
+//   const price = data; 
 
-  function getWidgetCardDOMPage() {
-    const widget = document.createElement("div");
-    /** Prix par jour */ 
-    const pricePerDay = document.createElement("p");
-    pricePerDay.textContent = price + "/ jour";
-    widget.appendChild(pricePerDay)
+//   function getWidgetCardDOMPage() {
+//     const widget = document.createElement("div");
+//     /** Prix par jour */ 
+//     const pricePerDay = document.createElement("p");
+//     pricePerDay.textContent = price + "/ jour";
+//     widget.appendChild(pricePerDay)
 
-    return (widget);
-  }
-  return getWidgetCardDOMPage;
-}
+//     return (widget);
+//   }
+//   return getWidgetCardDOMPage;
+// }
 
-/** Affichage du widget sur la page photographer.html */ 
+// /** Affichage du widget sur la page photographer.html */ 
 
-function displayWidget(data) {
-  const widgetContainer = document.querySelector(".photographer_section");
-  const widgetModelPage = widgetFactory(data);
-  const widgetCardDOMPage = widgetModelPage.getWidgetCardDOMPage();
-  widgetContainer.appendChild(widgetCardDOMPage);
-};
+// function displayWidget(data) {
+//   const widgetContainer = document.querySelector(".photographer_section");
+//   const widgetModelPage = widgetFactory(data);
+//   const widgetCardDOMPage = widgetModelPage.getWidgetCardDOMPage();
+//   widgetContainer.appendChild(widgetCardDOMPage);
+// };
 
-/** Appel de la fonction pour l'affichage du widget */ 
-displayWidget();
+// /** Appel de la fonction pour l'affichage du widget */ 
+// displayWidget();
