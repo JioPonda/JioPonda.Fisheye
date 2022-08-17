@@ -94,7 +94,7 @@ async function getMedia() {
 }
 
 function mediaFactory(data) {
-  const { photographerId, title, image, video, likes} = data;
+  const { photographerId, title, image, video} = data;
 
   const picture = `assets/photographers/${photographerId}/${image}`;
   const moovie = `assets/photographers/${photographerId}/${video}` ;
@@ -102,22 +102,31 @@ function mediaFactory(data) {
   function getMediaCardDOMPage() {
     const divMedia = document.createElement("div");
     /** Vidéo du photographe */
-    // const iVideo = document.createElement("video");
-    // iVideo.setAttribute("controls" , "muted")
-    // iVideo.setAttribute("src" , moovie) 
+    const iVideo = document.createElement("video");
+    iVideo.setAttribute("controls" , "muted")
+    iVideo.setAttribute("width" , "350px")
+    iVideo.setAttribute("height" , "300px")
+    iVideo.setAttribute("src" , moovie) 
     /** photo du photographe */
     const iPicture = document.createElement("img");
     iPicture.setAttribute("src", picture)
     /** Titre de la photo */
     const iTitle = document.createElement("h2");
     iTitle.textContent = title;
-    divMedia.appendChild(iPicture);
+    /** Choix entre vidéo et photo  */
+    media.forEach((media) => {
+      if (media[3] === video) {
+        return divMedia.appendChild(iPicture); 
+      } else {
+        return divMedia.appendChild(iVideo);
+      }
+    }); 
     // divMedia.appendChild(iVideo);
+    // divMedia.appendChild(iPicture);
     divMedia.appendChild(iTitle);
-
-    return (divMedia)
+    return (divMedia);
   }
-  return {getMediaCardDOMPage}
+  return {getMediaCardDOMPage};
 }
 
 /** ---------- Affichage des photos sur la page photographer.html ---------- */
