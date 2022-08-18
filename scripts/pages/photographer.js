@@ -163,3 +163,14 @@ async function initMedia() {
 /** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html */
 initMedia();
 
+// function lightBoxFactory(data) {
+//   const { photographerId, title, image, video} = data;
+
+//   const picture = `assets/photographers/${photographerId}/${image}`;
+//   const moovie = `assets/photographers/${photographerId}/${video}` ;
+
+//   function getLigthBoxCardDOMPage() {
+    
+//   }
+//   return {getLigthBoxCardDOMPage};
+// }
