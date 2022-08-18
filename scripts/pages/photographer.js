@@ -113,10 +113,12 @@ function mediaFactory(data) {
     iVideo.setAttribute("height" , "300px")
     iVideo.setAttribute("src" , moovie) 
     iVideo.setAttribute("aria-label" , "vidéo prise par le photographe")
+    iVideo.setAttribute("onclick" , "displayLightBox()")
     /** photo du photographe */
     const iPicture = document.createElement("img");
     iPicture.setAttribute("src", picture)
     iPicture.setAttribute("aria-label" , "photo appeler " + title)
+    iPicture.setAttribute( "onclick" , "displayLightBox()")
     /** Titre de la photo */
     const iTitle = document.createElement("h2");
     iTitle.textContent = title;
@@ -161,17 +163,3 @@ async function initMedia() {
 /** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html */
 initMedia();
 
-/** création de la function de récupération des données saisie dans la modal */ 
-function sendInfos () {
-  const labelFirst = document.getElementById("firstName").value;
-  const labelLast = document.getElementById("lastName").value;
-  const labelEmail = document.getElementById("email").value;
-  const labelMessage = document.getElementById("message").value;
-  console.log(labelFirst , labelLast , labelEmail , labelMessage);
-}
-
-function redirection() {
-  window.location.replace = ("photographer.html?id="+ getPhotographerId());
-}
-
-console.log(window.location.href);

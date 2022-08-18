@@ -19,7 +19,7 @@
       <section class="photographer_section">
       </section>
     </main>
-    <div role="dialog" id="contact_modal" aria-describedby="Modal de contacte">
+    <div id="contact_modal" aria-describedby="Modal de contacte">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
@@ -40,6 +40,11 @@
 				</form>
 			</div>
 		</div>
+    <div id="lightBox_container">
+      <div class="lightBox">
+        <img src="assets/icons/close.svg" onclick="closeLightBox()" />
+      </div>
+    </div>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>

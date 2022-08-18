@@ -140,6 +140,10 @@ h1 {
     text-align: center;
 }
 
+#lightBox_container {
+    background-color: #312E2E;
+}
+
 form {
     display: flex;
     width: 100%;
