@@ -163,14 +163,37 @@ async function initMedia() {
 /** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html */
 initMedia();
 
-// function lightBoxFactory(data) {
-//   const { photographerId, title, image, video} = data;
+function lightBoxFactory(data) {
+  const { photographerId, title, image, video} = data;
 
-//   const picture = `assets/photographers/${photographerId}/${image}`;
-//   const moovie = `assets/photographers/${photographerId}/${video}` ;
+  const picture = `assets/photographers/${photographerId}/${image}`;
+  const moovie = `assets/photographers/${photographerId}/${video}` ;
 
-//   function getLigthBoxCardDOMPage() {
-    
-//   }
-//   return {getLigthBoxCardDOMPage};
-// }
+  function getLigthBoxCardDOMPage() {
+      const divLightBox = document.createElement("div");
+      divLightBox.setAttribute("class" ,"lightBox" );
+      const crossLigthBox = document.createElement("img");
+      crossLigthBox.setAttribute("class" , "crossLightBox");
+      crossLigthBox.setAttribute("src" , "assets/icons/close2.svg");
+      crossLigthBox.setAttribute("onclick", "closeLightBox()");
+      const lightBoxPicture = document.createElement("img")
+      lightBoxPicture.setAttribute("src", picture );
+      const lightBoxMoovie = document.createElement("video")
+      lightBoxMoovie.setAttribute("src" + moovie);
+      const lightBoxMediaTitle = document.createElement("h2")
+      lightBoxMediaTitle.textContent= title; 
+
+      divLightBox.appendChild(crossLigthBox);
+      media.forEach((media) => {
+        if (media[3] === video) {
+          return divLightBox.appendChild(lightBoxPicture); 
+        } else {
+          return divLightBox.appendChild(lightBoxMoovie);
+        }
+      });
+      divLightBox.appendChild(lightBoxMediaTitle);
+      return (divLightBox);
+    }
+  return {getLigthBoxCardDOMPage};
+}
+
