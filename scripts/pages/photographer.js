@@ -112,9 +112,11 @@ function mediaFactory(data) {
     iVideo.setAttribute("width" , "350px")
     iVideo.setAttribute("height" , "300px")
     iVideo.setAttribute("src" , moovie) 
+    iVideo.setAttribute("aria-label" , "vidéo prise par le photographe")
     /** photo du photographe */
     const iPicture = document.createElement("img");
     iPicture.setAttribute("src", picture)
+    iPicture.setAttribute("aria-label" , "photo appeler " + title)
     /** Titre de la photo */
     const iTitle = document.createElement("h2");
     iTitle.textContent = title;
