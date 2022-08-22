@@ -25,8 +25,8 @@ function sendInfos () {
 };
 
 /** Ouverture de la LightBox*/ 
-function displayLightBox() {
-    const lightBox = document.getElementById("lightBox_container");
+function openLightBox() {
+    const lightBox = document.getElementById("lightBox");
     lightBox.style.display = "block";
     main.style.display = "none";
     main.setAttribute("aria-hidden" , "true");

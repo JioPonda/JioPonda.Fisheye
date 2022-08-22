@@ -140,6 +140,10 @@ h1 {
     text-align: center;
 }
 
+#lightBox {
+    display: none;
+}
+
 #lightBox_container {
     height: 600px;
     width: 600px;
@@ -148,9 +152,26 @@ h1 {
     margin : 0vh 0% 0% 25vw
 }
 
+.arrow {
+    position: absolute;
+    height: 80px;
+    width: 50px;
+}
+
+#L {
+    margin:  300px 0vw 0vh -5vw;
+}
+
+#R {
+    margin: 300px 0vw 0vh 43vw;
+}
+
 .crossLightBox {
+    position: absolute;
+    height: 50px;
+    width: 50px;
     color: #911C1C;
-    margin: 0vh 0 0 42vw;
+    margin: 25px 0 0 43vw;
 }
 
 form {
