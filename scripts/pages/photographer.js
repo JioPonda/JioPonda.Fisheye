@@ -58,14 +58,6 @@ function photographerFactory(data) {
     return articlePage;
   }
 
-  // function getWidgetCardDOMPAGE () {
-  //   const footerDiv = document.createElement("div");
-  //   /** Widget*/
-  //   const pricePerDay = document.createElement("p");
-  //   pricePerDay.textContent = price + "€ / jour"; 
-  //   footerDiv.appendChild(pricePerDay);
-  // }
-
   return {name , picture , getUserCardDOMPage}
 } 
 
@@ -115,32 +107,34 @@ function mediaFactory(data) {
     const divMedia = document.createElement("div");
     /** Vidéo du photographe */
     const iVideo = document.createElement("video");
-    iVideo.setAttribute("class" , "video")
-    iVideo.setAttribute("controls" , "muted")
-    iVideo.setAttribute("width" , "350px")
-    iVideo.setAttribute("height" , "300px")
-    iVideo.setAttribute("src" , moovie) 
-    iVideo.setAttribute("aria-label" , "vidéo prise par le photographe")
-    iVideo.setAttribute("onclick" , "openLightBox() + displayLightBox()" )
+    iVideo.setAttribute("class" , "video");
+    iVideo.setAttribute("controls" , "muted");
+    iVideo.setAttribute("width" , "350px");
+    iVideo.setAttribute("height" , "300px");
+    iVideo.setAttribute("src" , moovie);
+    iVideo.setAttribute("aria-label" , "vidéo prise par le photographe");
+    iVideo.setAttribute("onclick" , "openLightBox()" );
     /** photo du photographe */
     const iPicture = document.createElement("img");
-    iPicture.setAttribute("src", picture)
-    iPicture.setAttribute("aria-label" , "photo appeler " + title)
-    iPicture.setAttribute( "onclick" , "openLightBox()")
+    iPicture.setAttribute("src", picture);
+    iPicture.setAttribute("aria-label" , "photo appeler " + title);
+    iPicture.setAttribute( "onclick" , "openLightBox()");
     /** Titre de la photo */
     const iTitle = document.createElement("h2");
     iTitle.textContent = title;
     /** Choix entre vidéo et photo  */
     media.forEach((media) => {
-      if (media[3] == video) {
-        divMedia.appendChild(iPicture); 
-      } else {
+      if (media[3] == image) {
         divMedia.appendChild(iVideo);
+      } else {
+        divMedia.appendChild(iPicture);
       }
     });
     divMedia.appendChild(iTitle);
     return (divMedia);
   }
+
+  
   return {getMediaCardDOMPage};
 }
 

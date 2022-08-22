@@ -34,7 +34,7 @@ function openLightBox() {
 
 /** Fermeture de la LightBox*/ 
 function closeLightBox() {
-    const lightBox = document.getElementById("lightBox_container");
+    const lightBox = document.getElementById("lightBox");
     lightBox.style.display = "none";
     main.style.display = "block";
     main.setAttribute("aria-hidden" , "false");
