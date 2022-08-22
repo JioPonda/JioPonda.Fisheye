@@ -57,6 +57,15 @@ function photographerFactory(data) {
     articlePage.appendChild(imgPage);
     return articlePage;
   }
+
+  // function getWidgetCardDOMPAGE () {
+  //   const footerDiv = document.createElement("div");
+  //   /** Widget*/
+  //   const pricePerDay = document.createElement("p");
+  //   pricePerDay.textContent = price + "€ / jour"; 
+  //   footerDiv.appendChild(pricePerDay);
+  // }
+
   return {name , picture , getUserCardDOMPage}
 } 
 
@@ -77,11 +86,10 @@ function displayProfil() {
 
 /**  Initialisation pour l'affichage des données du photographe sur la page photographer.html  */
 async function initPage() {
-  const { photographers } =
-    await getPhotographers(); /** Récupère les données du photographe avant affichage */
-  displayProfil(
-    photographers
-  ); /** Appel de la fonction d'affichage des données */
+  /** Récupère les données du photographe avant affichage */
+  const { photographers } = await getPhotographers();
+  /** Appel de la fonction d'affichage des données */ 
+  displayProfil(photographers); 
 }
 
 /** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html  */
@@ -153,11 +161,10 @@ function displayMedia() {
 
 /**  Initialisation pour l'affichage des données des media sur la page photographer.html */
 async function initMedia() {
-  const { media } =
-    await getMedia(); /** Récupère les données des Medias avant affichage */
-  displayMedia(
-    media
-  ); /** Appel de la fonction d'affichage des données */
+  /** Récupère les données des Medias avant affichage */
+  const { media } = await getMedia();
+  /** Appel de la fonction d'affichage des données */ 
+  displayMedia(media); 
 }
 
 /** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html */
