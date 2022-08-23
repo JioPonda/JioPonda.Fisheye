@@ -73,6 +73,10 @@ h1 {
     width: 350px ;
 }
 
+.photographer_section div img:hover {
+    cursor: pointer;
+}
+
 .photographer_section div h2 {
     color: #901C1C;
     font-size: 24px;
@@ -114,6 +118,7 @@ h1 {
 }
 
 .modal {
+    position: absolute;
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
@@ -122,7 +127,7 @@ h1 {
     align-items: center;
     justify-content: space-between;
     padding: 45px;
-    margin: auto;
+    margin: 0px 0 0 25vw;
 }
 
 .modal header {
@@ -142,6 +147,7 @@ h1 {
 
 #lightBox {
     display: none;
+    position: relative;
 }
 
 #lightBox_container {
@@ -160,10 +166,20 @@ h1 {
 
 #L {
     margin:  300px 0vw 0vh -5vw;
+    transform: rotate(180deg);
 }
 
 #R {
     margin: 300px 0vw 0vh 43vw;
+}
+
+
+#L:hover {
+ cursor: pointer;
+}
+
+#R:hover {
+ cursor: pointer;
 }
 
 .crossLightBox {
@@ -172,6 +188,7 @@ h1 {
     width: 50px;
     color: #911C1C;
     margin: 25px 0 0 43vw;
+    cursor: pointer;   
 }
 
 form {

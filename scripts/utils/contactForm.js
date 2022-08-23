@@ -3,6 +3,7 @@ function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
     modal.setAttribute("role" , "dialog");
+    // main.style.opacity = 0.5;
     main.style.display = "none";
     main.setAttribute("aria-hidden" , "true");
 };
@@ -39,6 +40,7 @@ function closeLightBox() {
     main.style.display = "block";
     main.setAttribute("aria-hidden" , "false");
 };
+
 
 
 // const modalId = document.getElementById("contact_modal");
