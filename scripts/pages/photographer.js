@@ -145,7 +145,7 @@ function lightBoxFactory (data) {
 
   function getLigthBoxCardDOMPage () {
     const container = document.createElement("div")
-    container.setAttribute("class" , "ligthBoxElement")
+    container.setAttribute("id" , "ligthBoxElement")
     /** Photo de la lightBox */ 
     const lPicture = document.createElement("img");
     lPicture.setAttribute("src" , picture)
@@ -203,16 +203,17 @@ function displayMedia() {
 
 function slideLeft() {
   const L = document.getElementById("L");
+  const element = document.querySelectorAll(".lightBoxElement");
   L.addEventListener("click", function(){
-    document.querySelectorAll(".ligthBoxElement").style.transform = "translateX(-1000px)"
+    element.style.transform = "translateX(1000px)";
   })
 }
 
 function slideRigth() {
   const R = document.getElementById("R");
-  const element = document.querySelectorAll(".ligthBoxElement");
+  const element = document.querySelector(".lightBoxElement");
   R.addEventListener("click", function(){
-  element.style.transform = "translateX(1000px)"
+  element.style.transform = "translateX(-1000px)";
   })
 }
 
