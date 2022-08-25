@@ -203,17 +203,16 @@ function displayMedia() {
 
 function slideLeft() {
   const L = document.getElementById("L");
-  const Element = document.querySelectorAll(".ligthBoxElement")
   L.addEventListener("click", function(){
-  Element.style.transform="translate(-1000px)";
+    document.querySelectorAll(".ligthBoxElement").style.transform = "translateX(-1000px)"
   })
 }
 
 function slideRigth() {
-  const R = document.getElementById("L");
-  const Element = document.querySelector(".ligthBoxElement")
+  const R = document.getElementById("R");
+  const element = document.querySelectorAll(".ligthBoxElement");
   R.addEventListener("click", function(){
-  Element.style.transform = "translate(1000px)";
+  element.style.transform = "translateX(1000px)"
   })
 }
 
