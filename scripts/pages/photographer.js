@@ -133,6 +133,15 @@ function mediaFactory(data) {
     divMedia.appendChild(iTitle);
     return (divMedia);
   }
+  
+  return {getMediaCardDOMPage};
+}
+
+function lightBoxFactory (data) {
+  const { photographerId, image, video} = data;
+
+  const picture = `assets/photographers/${photographerId}/${image}`;
+  const moovie = `assets/photographers/${photographerId}/${video}`;
 
   function getLigthBoxCardDOMPage () {
     /** Container de la LightBox*/ 
@@ -180,7 +189,15 @@ function mediaFactory(data) {
     container.appendChild(cross);
     return (container)
   }
-  return {getMediaCardDOMPage , getLigthBoxCardDOMPage};
+ return {getLigthBoxCardDOMPage};
+}
+
+/** Affichage de la lightbox sur la page photographer.html */
+function displayLightBox () {
+  const lightBoxContainer = document.querySelector("#lightBox");
+  const lightBoxModelPage = lightBoxFactory(media);
+  const LigthBoxCardDOMPage = lightBoxModelPage.getLigthBoxCardDOMPage();
+  lightBoxContainer.appendChild(LigthBoxCardDOMPage);
 }
 
 /** Affichage des photos sur la page photographer.html */
@@ -208,10 +225,3 @@ async function initMedia() {
 
 /** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html */
 initMedia();
-
-function displayLightBox () {
-  const lightBoxContainer = document.querySelector("#lightBox");
-  const lightBoxModelPage = mediaFactory(media);
-  const LigthBoxCardDOMPage = lightBoxModelPage.getLigthBoxCardDOMPage();
-  lightBoxContainer.appendChild(LigthBoxCardDOMPage);
-}
