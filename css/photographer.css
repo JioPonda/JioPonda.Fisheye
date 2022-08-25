@@ -151,9 +151,14 @@
         position: relative;
     }
 
+    .ligthBoxElement img{
+        height: 800px;
+        width: 1000px;
+    }
+
     #lightBox_container {
-        height: 600px;
-        max-width: 800px;
+        height: 1000px;
+        width: 1500px;
         display: flex;
         background-color: #312E2E;
         margin : 0vh 0% 0% 25vw
@@ -220,7 +225,7 @@
     }
 }
 
-@media screen and (min-width : 1920px) {
+@media screen and (max-width : 1920px) {
     #contact_modal {
         display: none;
     }
@@ -376,11 +381,20 @@
     }
 
     #lightBox_container {
-        height: 600px;
-        max-width: 800px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        height: 850px;
+        width: 1000px;
         display: flex;
         background-color: #312E2E;
-        margin : 0vh 0% 0% 25vw
+        margin : 0vh 0% 0% 22vw;
+        overflow: hidden;
+    }
+
+    .ligthBoxElement img{
+        height: 800px;
+        width: 1000px;
     }
 
     .arrow {
@@ -390,12 +404,12 @@
     }
 
     #L {
-        margin:  300px 0vw 0vh -5vw;
+        margin:  400px 0vw 0vh -4vw;
         transform: rotate(180deg);
     }
 
     #R {
-        margin: 300px 0vw 0vh 43vw;
+        margin: 400px 0vw 0vh 53vw;
     }
 
 
@@ -412,7 +426,7 @@
         height: 50px;
         width: 50px;
         color: #911C1C;
-        margin: 25px 0 0 43vw;
+        margin: 20px 0 0 53vw;
         cursor: pointer;   
     }
 

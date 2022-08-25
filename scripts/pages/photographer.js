@@ -138,66 +138,55 @@ function mediaFactory(data) {
 }
 
 function lightBoxFactory (data) {
-  const { photographerId, image, video} = data;
+  const { photographerId , image, video} = data;
 
   const picture = `assets/photographers/${photographerId}/${image}`;
   const moovie = `assets/photographers/${photographerId}/${video}`;
 
   function getLigthBoxCardDOMPage () {
-    /** Container de la LightBox*/ 
-    const container = document.createElement("div");
-    container.setAttribute("id" , "lightBox_container")
-    /** fleche gauche*/
-    const arrowL = document.createElement("img");
-    arrowL.setAttribute("src" , "assets/icons/arrow.png");
-    arrowL.setAttribute("alt" , "fleche de direction gauche");
-    arrowL.setAttribute("class" , "arrow");
-    arrowL.setAttribute("id" , "L");
-    /** fleche droite*/
-    const arrowR = document.createElement("img");
-    arrowR.setAttribute("src" , "assets/icons/arrow.png");
-    arrowR.setAttribute("alt" , "fleche de direction gauche");
-    arrowR.setAttribute("class" , "arrow");
-    arrowR.setAttribute("id" , "R");
-    /** croix de fermeture de la lightBox */
-    const cross = document.createElement("img")
-    cross.setAttribute("src" , "assets/icons/close_red.png")
-    cross.setAttribute("alt" , "croix de fermeture de la lightBox")
-    cross.setAttribute("class" , "crossLightBox")
-    cross.setAttribute("onclick" , "closeLightBox()")
+    const container = document.createElement("div")
+    container.setAttribute("class" , "ligthBoxElement")
     /** const pour les fleches */
     const L = document.getElementById("L") ;
     const R = document.getElementById("R");
     /** Photo de la lightBox */ 
     const lPicture = document.createElement("img");
     lPicture.setAttribute("src" , picture)
+    lPicture.setAttribute("class", "picture")
     /** Video de la lightBox */ 
     const lMoovie = document.createElement("video");
     lMoovie.setAttribute("src" , moovie);
-
+    lMoovie.setAttribute("controls" , "muted");
+    lMoovie.setAttribute("width" , "800px");
+    lMoovie.setAttribute("height" , "600px");
+    /** Affichage Photo ou Video dans la ligthBox */ 
     media.forEach((media) => {
       if (photographerId === getPhotographerId && media[3] === video) {
-        console.log("ça passe ici");
-        container.appendChild(lPicture);
-      } else { 
         console.log("ça passe par la");
         container.appendChild(lMoovie);
+      } else { 
+        console.log("ça passe ici");
+        container.appendChild(lPicture);
       }
     })
-    container.appendChild(arrowL);
-    container.appendChild(arrowR);
-    container.appendChild(cross);
-    return (container)
+    // container.appendChild(lPicture);
+    // container.appendChild(lMoovie);
+    return (container);
   }
- return {getLigthBoxCardDOMPage};
+  console.log(picture);
+  return {getLigthBoxCardDOMPage};
 }
 
 /** Affichage de la lightbox sur la page photographer.html */
 function displayLightBox () {
-  const lightBoxContainer = document.querySelector("#lightBox");
-  const lightBoxModelPage = lightBoxFactory(media);
-  const LigthBoxCardDOMPage = lightBoxModelPage.getLigthBoxCardDOMPage();
-  lightBoxContainer.appendChild(LigthBoxCardDOMPage);
+  const lightBoxContainer = document.querySelector("#lightBox_container");
+    media.forEach((media) => {
+      if (media.photographerId === getPhotographerId()) {
+      const lightBoxModelPage = lightBoxFactory(media);
+      const LigthBoxCardDOMPage = lightBoxModelPage.getLigthBoxCardDOMPage();
+      lightBoxContainer.appendChild(LigthBoxCardDOMPage);
+    };
+  })
 }
 
 /** Affichage des photos sur la page photographer.html */
