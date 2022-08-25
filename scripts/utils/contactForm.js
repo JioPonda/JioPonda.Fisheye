@@ -41,8 +41,6 @@ function closeLightBox() {
     main.setAttribute("aria-hidden" , "false");
 };
 
-
-
 // const modalId = document.getElementById("contact_modal");
 // modalId.addEventListener('Keydown' , e => {
 //     const keyCode = e.keyCode ?  e.keyCode : e.which

@@ -146,9 +146,6 @@ function lightBoxFactory (data) {
   function getLigthBoxCardDOMPage () {
     const container = document.createElement("div")
     container.setAttribute("class" , "ligthBoxElement")
-    /** const pour les fleches */
-    const L = document.getElementById("L") ;
-    const R = document.getElementById("R");
     /** Photo de la lightBox */ 
     const lPicture = document.createElement("img");
     lPicture.setAttribute("src" , picture)
@@ -201,6 +198,22 @@ function displayMedia() {
       const mediaCardDOMPage = mediaModelPage.getMediaCardDOMPage();
       photographerMediaContainer.appendChild(mediaCardDOMPage);    
     };
+  })
+}
+
+function slideLeft() {
+  const L = document.getElementById("L");
+  const Element = document.querySelectorAll(".ligthBoxElement")
+  L.addEventListener("click", function(){
+  Element.style.transform="translate(-1000px)";
+  })
+}
+
+function slideRigth() {
+  const R = document.getElementById("L");
+  const Element = document.querySelector(".ligthBoxElement")
+  R.addEventListener("click", function(){
+  Element.style.transform = "translate(1000px)";
   })
 }
 

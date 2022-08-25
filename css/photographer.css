@@ -160,7 +160,6 @@
         height: 1000px;
         width: 1500px;
         display: flex;
-        background-color: #312E2E;
         margin : 0vh 0% 0% 25vw
     }
 
@@ -387,7 +386,6 @@
         height: 850px;
         width: 1000px;
         display: flex;
-        background-color: #312E2E;
         margin : 0vh 0% 0% 22vw;
         overflow: hidden;
     }
