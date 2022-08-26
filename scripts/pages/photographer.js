@@ -145,7 +145,7 @@ function lightBoxFactory (data) {
 
   function getLigthBoxCardDOMPage () {
     const container = document.createElement("div")
-    container.setAttribute("id" , "ligthBoxElement")
+    container.setAttribute("class" , "ligthBoxElement")
     /** Photo de la lightBox */ 
     const lPicture = document.createElement("img");
     lPicture.setAttribute("src" , picture)
@@ -176,7 +176,7 @@ function lightBoxFactory (data) {
 
 /** Affichage de la lightbox sur la page photographer.html */
 function displayLightBox () {
-  const lightBoxContainer = document.querySelector("#lightBox_container");
+  const lightBoxContainer = document.querySelector(".lightBoxSlide");
     media.forEach((media) => {
       if (media.photographerId === getPhotographerId()) {
       const lightBoxModelPage = lightBoxFactory(media);
@@ -201,21 +201,25 @@ function displayMedia() {
   })
 }
 
-function slideLeft() {
-  const L = document.getElementById("L");
-  const element = document.querySelectorAll(".lightBoxElement");
-  L.addEventListener("click", function(){
-    element.style.transform = "translateX(1000px)";
-  })
+/** Mise en place du slider */ 
+const imgSlider = document.getElementsByClassName("picture");
+let etape = 0;
+const nbrOfPicture = imgSlider.length;
+let preview = document.querySelector("#L") ; 
+let next = document.querySelector("#R") ;
+
+function removeActiveImg () {
+  for ( i = 0 ; i < nbrOfPicture ; i++) {
+    imgSlider[i].classList.remove('active');
+  }
 }
 
-function slideRigth() {
-  const R = document.getElementById("R");
-  const element = document.querySelector(".lightBoxElement");
-  R.addEventListener("click", function(){
-  element.style.transform = "translateX(-1000px)";
-  })
-}
+next.addEventListener('click', function() {
+  etape++;
+  removeActiveImg();
+  imgSlider[etape].classList.add('active');
+})
+
 
 /**  Initialisation pour l'affichage des données des media sur la page photographer.html */
 async function initMedia() {
