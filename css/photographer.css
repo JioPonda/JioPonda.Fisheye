@@ -162,12 +162,8 @@
     }
     
     .ligthBoxElement img{
-        object-fit: cover;
         height: 800px;
         width: 800px;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 
     .lightBoxSlide{
@@ -399,12 +395,8 @@
     }
     
     .ligthBoxElement img{
-        object-fit: cover;
         height: 100%;
         width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 
     .lightBoxSlide{
