@@ -201,25 +201,30 @@ function displayMedia() {
   })
 }
 
-/** Mise en place du slider */ 
-const imgSlider = document.getElementsByClassName("picture");
-let etape = 0;
-const nbrOfPicture = imgSlider.length;
-let preview = document.querySelector("#L") ; 
-let next = document.querySelector("#R") ;
-
-function removeActiveImg () {
-  for ( i = 0 ; i < nbrOfPicture ; i++) {
-    imgSlider[i].classList.remove('active');
-  }
+function next() {
+  const L = document.querySelector("#L");
+  L.addEventListener("click" , function () {
+    const slider = document.querySelector(".lightBoxSlide");
+    let position = 0;
+    const count = slider.childElementCount;
+    if (position>-count+1) {
+      position--;
+      slider.style.transform= "translateX("+position*1000+"px)";
+    }
+  })
 }
 
-next.addEventListener('click', function() {
-  etape++;
-  removeActiveImg();
-  imgSlider[etape].classList.add('active');
-})
-
+function preview() {
+  const R = document.querySelector("#L");
+  R.addEventListener("click" , function () {
+    const slider = document.querySelector(".lightBoxSlide");
+    let position = 0;
+    if (position<0) {
+      position--;
+      slider.style.transform= "translateX("+position*1000+"px)";
+    }
+  })
+}
 
 /**  Initialisation pour l'affichage des données des media sur la page photographer.html */
 async function initMedia() {

@@ -149,25 +149,27 @@
         text-align: center;
     }
 
-        #lightBox {
+    #lightBox {
         display: none;
     }
 
     #lightBox_container {
         height: 800px;
-        width: 800px;
-        display: flex;
-        margin : 0vh 0% 0% 29vw;
-        position: relative;
+        width: 1000px;
+        margin : 0vh 0% 0% 22vw;
+        overflow: hidden;
     }
     
-    .ligthBoxElement img{
-        height: 800px;
-        width: 800px;
+    .lightBoxSlide{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        height: 850px;
+        width: 1000px;
     }
 
-    .lightBoxSlide{
-        height: 850px;
+    .ligthBoxElement img{
+        height: 800px;
         width: 1000px;
     }
 
@@ -394,15 +396,16 @@
         position: relative;
     }
     
+    .lightBoxSlide{
+        height: 850px;
+        width: 1000px;
+    }
+    
     .ligthBoxElement img{
         height: 100%;
         width: 100%;
     }
 
-    .lightBoxSlide{
-        height: 850px;
-        width: 1000px;
-    }
 
     .arrow {
         position: absolute;
