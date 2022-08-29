@@ -166,8 +166,6 @@ function lightBoxFactory (data) {
         container.appendChild(lPicture);
       }
     })
-    // container.appendChild(lPicture);
-    // container.appendChild(lMoovie);
     return (container);
   }
   console.log(picture);
@@ -201,29 +199,31 @@ function displayMedia() {
   })
 }
 
+let position = 0;
+
 function next() {
+  const slider = document.querySelector(".lightBoxSlide");
+  const count = slider.childElementCount;
   const L = document.querySelector("#L");
   L.addEventListener("click" , function () {
-    const slider = document.querySelector(".lightBoxSlide");
-    let position = 0;
-    const count = slider.childElementCount;
     if (position>-count+1) {
       position--;
       slider.style.transform= "translateX("+position*1000+"px)";
+      console.log(position);
     }
   })
 }
 
 function preview() {
-  const R = document.querySelector("#L");
+  const R = document.querySelector("#R");
   R.addEventListener("click" , function () {
     const slider = document.querySelector(".lightBoxSlide");
-    let position = 0;
     if (position<0) {
-      position--;
+      position++;
       slider.style.transform= "translateX("+position*1000+"px)";
     }
   })
+  console.log(position);
 }
 
 /**  Initialisation pour l'affichage des données des media sur la page photographer.html */
