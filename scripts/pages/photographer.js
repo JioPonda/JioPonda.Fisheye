@@ -16,7 +16,7 @@ function getPhotographerId() {
 /**  CREATION DU GABARIT DU HEADER DE LA PAGE PHOTOGRAHER.HTML - PRESENTATION DU PHOTOGRAPHE  */
 
 function photographerFactory(data) {
-  const { name, city, country, tagline , portrait , price } = data;
+  const { name, city, country, tagline , portrait , price , likes} = data;
 
   const picture = `assets/photographers/photographers_ID_Photos/${portrait}`;
 
@@ -45,8 +45,8 @@ function photographerFactory(data) {
     imgPage.setAttribute("alt", "portrait du photographe");
   
     /** Widget*/
-    const pricePerDay = document.createElement("p")
-    pricePerDay.textContent = price + "€ / jour" 
+    const pricePerDay = document.createElement("p");
+    pricePerDay.textContent = price + "€ / jour"; 
 
     articlePage.appendChild(divProfil);
     articlePage.appendChild(divWidget);
@@ -98,10 +98,11 @@ async function getMedia() {
 }
 
 function mediaFactory(data) {
-  const { photographerId, title, image, video} = data;
+  const { photographerId, title, likes, image, video} = data;
 
   const picture = `assets/photographers/${photographerId}/${image}`;
   const moovie = `assets/photographers/${photographerId}/${video}`;
+  const heart = `assets/icons/heart.png`
 
   function getMediaCardDOMPage() {
     const divMedia = document.createElement("div");
@@ -120,8 +121,17 @@ function mediaFactory(data) {
     iPicture.setAttribute("aria-label" , "photo appeler " + title);
     iPicture.setAttribute( "onclick" , "openLightBox() + displayLightBox()");
     /** Titre de la photo */
+    const divTitle = document.createElement("div")
+    divTitle.setAttribute("class","divTitle")
     const iTitle = document.createElement("h2");
     iTitle.textContent = title;
+    /** Nombres de like*/ 
+    const iLike = document.createElement("p")
+    iLike.textContent = likes;
+    iLike.setAttribute("class","like")
+    const iHeart = document.createElement("img")
+    iHeart.setAttribute("src" , heart)
+    iHeart.setAttribute("class" , "heart")
     /** Choix entre vidéo et photo  */
     media.forEach((media) => {
       if (media[3] == image) {
@@ -130,7 +140,14 @@ function mediaFactory(data) {
         divMedia.appendChild(iPicture);
       }
     });
-    divMedia.appendChild(iTitle);
+    // media.forEach((media) => {
+    //   if ()
+
+    // })
+    divTitle.appendChild(iTitle);
+    divTitle.appendChild(iLike);
+    divTitle.appendChild(iHeart);
+    divMedia.appendChild(divTitle);
     return (divMedia);
   }
   
@@ -168,6 +185,7 @@ function lightBoxFactory (data) {
     })
     return (container);
   }
+
   console.log(picture);
   return {getLigthBoxCardDOMPage};
 }
