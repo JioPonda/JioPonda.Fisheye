@@ -67,8 +67,53 @@
         border-radius: 200px;
     }
 
+    #sorting {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        margin: 45px 0 0 4vw;
+    }
+
+    #sorting p {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0px 0 0 2vw;
+    }
+
+    #sorting ul {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #sorting li {
+        position : absolute;
+        height: 10px;
+        width: 5vw;
+        list-style: none;
+        padding: 15px;
+        background-color: #901C1C;
+        margin: -30px 0 0 -1vw;
+        border-radius: 5px;
+    }
+
+    #sorting a {
+        color: #FFFF;
+        font-size: 18px;
+    }
+
+    #sorting .chevron {
+        position: absolute;
+        height: 10px;
+        width: auto;
+        background-color: #901C1C;
+        margin: 0px 0 0 113px;
+        padding: 2px;
+        transform: rotate(180deg);
+        z-index: 2;
+    }
+
     .photographer_section div {
-        margin: 0% 0% 0% 2vw;
+        margin: 0% 0% 0% 3.5vw;
     }
 
     .photographer_section div img {
@@ -89,7 +134,7 @@
         color: #901C1C;
         font-size: 22px;
         font-weight: 400;
-        margin-left: -2vw;
+        margin-left: -3vw;
     }
 
     .photographer_section div p {
@@ -97,13 +142,13 @@
         color: #901C1C;
         font-size: 24px;
         font-weight: 400;
-        margin: 18px 0 0 18vw;
+        margin: 18px 0 0 16vw;
     }
     .photographer_section div .heart {
         position: absolute;
         height: 20px;
         width: 20px;
-        margin: 23px 0 0 20vw;
+        margin: 23px 0 0 18vw;
     }
 
     .video {
