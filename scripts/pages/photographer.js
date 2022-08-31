@@ -16,7 +16,7 @@ function getPhotographerId() {
 /**  CREATION DU GABARIT DU HEADER DE LA PAGE PHOTOGRAHER.HTML - PRESENTATION DU PHOTOGRAPHE  */
 
 function photographerFactory(data) {
-  const { name, city, country, tagline , portrait , price , likes} = data;
+  const { name, city, country, tagline , portrait , price} = data;
 
   const picture = `assets/photographers/photographers_ID_Photos/${portrait}`;
 
@@ -98,7 +98,7 @@ async function getMedia() {
 }
 
 function mediaFactory(data) {
-  const { photographerId, title, likes, image, video} = data;
+  let { photographerId, title, likes, image, video} = data;
 
   const picture = `assets/photographers/${photographerId}/${image}`;
   const moovie = `assets/photographers/${photographerId}/${video}`;
@@ -140,10 +140,13 @@ function mediaFactory(data) {
         divMedia.appendChild(iPicture);
       }
     });
-    // media.forEach((media) => {
-    //   if ()
-
-    // })
+    media.forEach(function(media) {
+      if (photographerId === getPhotographerId()) {
+        iHeart.addEventListener("click" , function() {
+          iLike.textContent = likes + 1;
+        })
+      }
+    })
     divTitle.appendChild(iTitle);
     divTitle.appendChild(iLike);
     divTitle.appendChild(iHeart);
@@ -185,10 +188,35 @@ function lightBoxFactory (data) {
     })
     return (container);
   }
-
-  console.log(picture);
   return {getLigthBoxCardDOMPage};
 }
+
+// function widgetFactory (data) {
+//   let { photographerId , likes , price} = data
+//   const heart = `assets/icons/heart.png`
+
+//   function getWidgetCardDOMPage() {
+//   /** Widget*/
+//   const divWidget = document.createElement("div")
+//   divWidget.setAttribute( "class" , "widget")
+//   const totalLikes = document.createElement("p");
+//   if ( photographerId === getPhotographerId()) {
+//     totalLikes.textContent = likes;
+//   }
+//   const widgetHeart = document.createElement("img");
+//   widgetHeart.setAttribute("src" , heart );
+//   widgetHeart.setAttribute("class" , "widgetHeart");
+//   const pricePerDay = document.createElement("p");
+//   pricePerDay.textContent = price + "€ / jour";
+
+//   divWidget.appendChild(totalLikes);
+//   divWidget.appendChild(widgetHeart);
+//   divWidget.appendChild(pricePerDay);
+
+//   return (divWidget)
+//   }
+//   return {getWidgetCardDOMPage};
+// }
 
 /** Affichage de la lightbox sur la page photographer.html */
 function displayLightBox () {
@@ -216,6 +244,18 @@ function displayMedia() {
     };
   })
 }
+
+// /** Affichage du widget sur la page photographer.html */
+// function displayWidget (photographer , media) {
+//   const widgetContainer = document.querySelector("#footerWidget");
+//     if (media.photographerId === getPhotographerId()) {
+//       const widgetModelPage = widgetFactory(photographer , media);
+//       const widgetCardDOMPage = widgetModelPage.getWidgetCardDOMPage();
+//       widgetContainer.appendChild(widgetCardDOMPage);
+//     }
+// }
+
+// displayWidget();
 
 let position = 0;
 
@@ -254,3 +294,4 @@ async function initMedia() {
 
 /** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html */
 initMedia();
+
