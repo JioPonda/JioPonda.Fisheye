@@ -18,14 +18,18 @@
       </div>
       <div id="sorting">
       <p>Trier par :</p>
-      <nav>
-        <img class="chevron" src="assets/icons/chevron.png" alt="chevron pour ouvrir le menu déroulant">
-        <ul>
-          <li><a href="#">Popularité</a></li>
-          <li><a href="#">Date</a></li>
-          <li><a href="#">Titre</a></li>
-        </ul>
-      </nav>
+        <div id="select">
+          <img class="chevronSelect" src="assets/icons/chevron.png" onclick="displayMenu()">
+          <a href="#">Popularité</a>
+        </div>
+        <div id="menu">
+          <img class="chevronMenu" src="assets/icons/chevron.png" onclick="closeMenu()">
+          <a class="Popular" href="#">Popularité</a>
+          <div class="border1"></div>
+          <a class="Date" href="#">Date</a>
+          <div class="border2"></div>
+          <a class="Titre" href="#">Titre</a>
+        </div>
       </div>
       <section class="photographer_section">
       </section>

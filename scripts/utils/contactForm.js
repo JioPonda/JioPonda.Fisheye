@@ -40,3 +40,17 @@ function closeLightBox() {
     main.style.display = "block";
     main.setAttribute("aria-hidden" , "false");
 };
+
+function displayMenu() {
+    const select = document.querySelector("#select"); 
+    const menu = document.querySelector("#menu");
+    select.style.display = "none";
+    menu.style.display = "flex";
+}
+
+function closeMenu() {
+    const select = document.querySelector("#select"); 
+    const menu = document.querySelector("#menu");
+    select.style.display = "flex";
+    menu.style.display = "none";
+}
