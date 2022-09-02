@@ -8,6 +8,16 @@ async function getPhotographers() {
   return {photographers: [...photographers],};
 }
 
+/** FETCH DATA pour récupérer les medias des photographes du fichier JSON  */
+async function getMedia() {
+  await fetch("./data/photographers.json")
+    .then((res) => res.json())
+    .then((data) => (media = data.media));
+  return {
+    media: [...media],
+  };
+}
+
 /**  Récupération et transformation en nombre de l'ID de la page photographe.html  */
 function getPhotographerId() {
   return parseInt(new URLSearchParams(window.location.search).get("id"));
@@ -44,13 +54,13 @@ function photographerFactory(data) {
     imgPage.setAttribute("src", picture);
     imgPage.setAttribute("alt", "portrait du photographe");
   
-    /** Widget*/
-    const pricePerDay = document.createElement("p");
-    pricePerDay.textContent = price + "€ / jour"; 
+    // /** Widget*/
+    // const pricePerDay = document.createElement("p");
+    // pricePerDay.textContent = price + "€ / jour"; 
 
     articlePage.appendChild(divProfil);
-    articlePage.appendChild(divWidget);
-    divWidget.appendChild(pricePerDay);
+    // articlePage.appendChild(divWidget);
+    // divWidget.appendChild(pricePerDay);
     divProfil.appendChild(h1Page);
     divProfil.appendChild(h2Page);
     divProfil.appendChild(h3Page);
@@ -61,48 +71,13 @@ function photographerFactory(data) {
   return {name , picture , getUserCardDOMPage}
 } 
 
-/**  Affichage du profil du photographe sur la page photographer.html  */
-function displayProfil() {
-  const photographerProfilContainer = document.querySelector(".photograph-header");
-
-  /** Boucle dans les photographes */
-  photographers.forEach((photographer) => {
-    if (photographer.id === getPhotographerId()) {
-      // Si l'id du photographe est égal à l'id de l'URL de la page photophapher.html
-      const photographerModelPage = photographerFactory(photographer);
-      const userCardDOMPage = photographerModelPage.getUserCardDOMPage();
-      photographerProfilContainer.appendChild(userCardDOMPage);
-    };
-  })
-}
-
-/**  Initialisation pour l'affichage des données du photographe sur la page photographer.html  */
-async function initPage() {
-  /** Récupère les données du photographe avant affichage */
-  const { photographers } = await getPhotographers();
-  /** Appel de la fonction d'affichage des données */ 
-  displayProfil(photographers); 
-}
-
-/** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html  */
-initPage();
-
-/** FETCH DATA pour récupérer les medias des photographes du fichier JSON  */
-async function getMedia() {
-  await fetch("./data/photographers.json")
-    .then((res) => res.json())
-    .then((data) => (media = data.media));
-  return {
-    media: [...media],
-  };
-}
-
 function mediaFactory(data) {
   let { photographerId, title, likes, image, video} = data;
 
   const picture = `assets/photographers/${photographerId}/${image}`;
   const moovie = `assets/photographers/${photographerId}/${video}`;
   const heart = `assets/icons/heart.png`
+  // const sumLike = media.map(item => item.likes).reduce((prev ,curr) => prev + curr, 0);
 
   function getMediaCardDOMPage() {
     const divMedia = document.createElement("div");
@@ -121,17 +96,17 @@ function mediaFactory(data) {
     iPicture.setAttribute("aria-label" , "photo appeler " + title);
     iPicture.setAttribute( "onclick" , "openLightBox() + displayLightBox()");
     /** Titre de la photo */
-    const divTitle = document.createElement("div")
-    divTitle.setAttribute("class","divTitle")
+    const divTitle = document.createElement("div");
+    divTitle.setAttribute("class","divTitle");
     const iTitle = document.createElement("h2");
     iTitle.textContent = title;
     /** Nombres de like*/ 
-    const iLike = document.createElement("p")
+    const iLike = document.createElement("p");
     iLike.textContent = likes;
-    iLike.setAttribute("class","like")
-    const iHeart = document.createElement("img")
-    iHeart.setAttribute("src" , heart)
-    iHeart.setAttribute("class" , "heart")
+    iLike.setAttribute("class","like");
+    const iHeart = document.createElement("img");
+    iHeart.setAttribute("src" , heart);
+    iHeart.setAttribute("class" , "heart");
     /** Choix entre vidéo et photo  */
     media.forEach((media) => {
       if (media[3] == image) {
@@ -140,6 +115,7 @@ function mediaFactory(data) {
         divMedia.appendChild(iPicture);
       }
     });
+    /** Fonctionnalité de like des photos et vidéos*/ 
     media.forEach(function(media) {
       if (photographerId === getPhotographerId()) {
         iHeart.addEventListener("click" , function() {
@@ -147,16 +123,58 @@ function mediaFactory(data) {
         })
       }
     })
+    // /** Affichage du total de like*/ 
+    // const totalLikes = document.createElement("p");
+    // totalLikes.setAttribute("class","totalLikes");
+    // totalLikes.textContent = sumLike;
+
+
     divTitle.appendChild(iTitle);
     divTitle.appendChild(iLike);
     divTitle.appendChild(iHeart);
     divMedia.appendChild(divTitle);
+    // divMedia.appendChild(totalLikes);
+    // console.log(sumLike);
     return (divMedia);
   }
-  
   return {getMediaCardDOMPage};
 }
 
+/** CREATION du widget en bas de page*/ 
+
+function widgetFactory (data) {
+  const { photographerId, likes , price} = data;
+  const heart = `assets/icons/heartBlack.png`
+
+  function getWidgetCardDOMPage () {
+  /** Widget*/
+  const divWidget = document.createElement("div");
+  divWidget.setAttribute("class","divWidget")
+  /** Nombre total de like*/ 
+  const sumLike = media.map(item => item.likes).reduce((prev ,curr) => prev + curr, 0);
+  const numberOfLikes = document.createElement("p");
+  media.forEach(function(media) {
+    if (photographerId === getPhotographerId()) {
+      numberOfLikes.textContent = sumLike;
+    }
+  })
+  /** img coeur*/ 
+  const widgetHeart = document.createElement("img");
+  widgetHeart.setAttribute("src", heart);
+  /** Prix par jour*/ 
+  const pricePerDay = document.createElement("p");
+  pricePerDay.textContent = price + "€ / jour";  
+  
+  divWidget.appendChild(numberOfLikes);
+  divWidget.appendChild(widgetHeart);
+  divWidget.appendChild(pricePerDay);
+  console.log(sumLike);
+  return (divWidget);
+  }
+  return {getWidgetCardDOMPage};
+}
+
+/** CREATION DU GABARIT DE LA LIGHTBOX */ 
 function lightBoxFactory (data) {
   const { photographerId , image, video} = data;
 
@@ -191,41 +209,17 @@ function lightBoxFactory (data) {
   return {getLigthBoxCardDOMPage};
 }
 
-// function widgetFactory (data) {
-//   let { photographerId , likes , price} = data
-//   const heart = `assets/icons/heart.png`
+/**  Affichage du profil du photographe sur la page photographer.html  */
+function displayProfil() {
+  const photographerProfilContainer = document.querySelector(".photograph-header");
 
-//   function getWidgetCardDOMPage() {
-//   /** Widget*/
-//   const divWidget = document.createElement("div")
-//   divWidget.setAttribute( "class" , "widget")
-//   const totalLikes = document.createElement("p");
-//   if ( photographerId === getPhotographerId()) {
-//     totalLikes.textContent = likes;
-//   }
-//   const widgetHeart = document.createElement("img");
-//   widgetHeart.setAttribute("src" , heart );
-//   widgetHeart.setAttribute("class" , "widgetHeart");
-//   const pricePerDay = document.createElement("p");
-//   pricePerDay.textContent = price + "€ / jour";
-
-//   divWidget.appendChild(totalLikes);
-//   divWidget.appendChild(widgetHeart);
-//   divWidget.appendChild(pricePerDay);
-
-//   return (divWidget)
-//   }
-//   return {getWidgetCardDOMPage};
-// }
-
-/** Affichage de la lightbox sur la page photographer.html */
-function displayLightBox () {
-  const lightBoxContainer = document.querySelector(".lightBoxSlide");
-    media.forEach((media) => {
-      if (media.photographerId === getPhotographerId()) {
-      const lightBoxModelPage = lightBoxFactory(media);
-      const LigthBoxCardDOMPage = lightBoxModelPage.getLigthBoxCardDOMPage();
-      lightBoxContainer.appendChild(LigthBoxCardDOMPage);
+  /** Boucle dans les photographes */
+  photographers.forEach((photographer) => {
+    if (photographer.id === getPhotographerId()) {
+      // Si l'id du photographe est égal à l'id de l'URL de la page photophapher.html
+      const photographerModelPage = photographerFactory(photographer);
+      const userCardDOMPage = photographerModelPage.getUserCardDOMPage();
+      photographerProfilContainer.appendChild(userCardDOMPage);
     };
   })
 }
@@ -245,17 +239,35 @@ function displayMedia() {
   })
 }
 
-// /** Affichage du widget sur la page photographer.html */
-// function displayWidget (photographer , media) {
-//   const widgetContainer = document.querySelector("#footerWidget");
-//     if (media.photographerId === getPhotographerId()) {
-//       const widgetModelPage = widgetFactory(photographer , media);
-//       const widgetCardDOMPage = widgetModelPage.getWidgetCardDOMPage();
-//       widgetContainer.appendChild(widgetCardDOMPage);
-//     }
-// }
+/** Affichage du widget sur la page photographer.html */ 
+function displayWidget() {
+  const widgetContainer = document.querySelector("#footerWidget")
 
-// displayWidget();
+  media.forEach((media) => {
+  if (media.photographerId === getPhotographerId()) {
+    const widgetModelPage = widgetFactory(media);
+    const WidgetCardDOMPage = widgetModelPage.getWidgetCardDOMPage();
+    widgetContainer.appendChild(WidgetCardDOMPage);
+  }
+  })
+}
+
+/** Affichage de la lightbox sur la page photographer.html */
+function displayLightBox () {
+  const lightBoxContainer = document.querySelector(".lightBoxSlide");
+
+  /** Boucle dans les media*/ 
+    media.forEach((media) => {
+      if (media.photographerId === getPhotographerId()) {
+      //  si l'id du media est égal à l'id de l'URL de la page photographer.html 
+      const lightBoxModelPage = lightBoxFactory(media);
+      const LigthBoxCardDOMPage = lightBoxModelPage.getLigthBoxCardDOMPage();
+      lightBoxContainer.appendChild(LigthBoxCardDOMPage);
+    };
+  })
+}
+
+/** fonction suivant et précédent du carrousel de la lightBox */ 
 
 let position = 0;
 
@@ -295,3 +307,13 @@ async function initMedia() {
 /** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html */
 initMedia();
 
+/**  Initialisation pour l'affichage des données du photographe sur la page photographer.html  */
+async function initPage() {
+  /** Récupère les données du photographe avant affichage */
+  const { photographers } = await getPhotographers();
+  /** Appel de la fonction d'affichage des données */ 
+  displayProfil(photographers); 
+}
+
+/** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html  */
+initPage();

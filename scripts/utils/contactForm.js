@@ -40,20 +40,3 @@ function closeLightBox() {
     main.style.display = "block";
     main.setAttribute("aria-hidden" , "false");
 };
-
-// const modalId = document.getElementById("contact_modal");
-// modalId.addEventListener('Keydown' , e => {
-//     const keyCode = e.keyCode ?  e.keyCode : e.which
-//     if (keyCode === 27) {
-//         return closeModal();
-//     }
-// });
-    
-// // Close modal when escape key is pressed
-// $(document).on('keydown', e => {
-//     const keyCode = e.keyCode ? e.keyCode : e.which
-  
-//     if ( keyCode === 27) {
-//        return closeModal()
-//     }
-//  })
