@@ -36,6 +36,11 @@ function photographerFactory(data) {
     divProfil.setAttribute("class" , "divProfil")
     const divWidget = document.createElement("div")
     divWidget.setAttribute( "class" , "widget")
+    const sumlike = document.querySelectorAll(".like");
+    console.log(sumlike);
+    // const sumLike = media.map(item => item.likes).reduce((prev ,curr) => prev + curr, 0);
+    const totalLike = document.createElement("p");
+    // totalLike.textContent = sumLike;
   
     /** Nom du photographe */
     const h1Page = document.createElement("h1");
@@ -54,13 +59,14 @@ function photographerFactory(data) {
     imgPage.setAttribute("src", picture);
     imgPage.setAttribute("alt", "portrait du photographe");
   
-    // /** Widget*/
-    // const pricePerDay = document.createElement("p");
-    // pricePerDay.textContent = price + "€ / jour"; 
+    // // /** Widget*/
+    const pricePerDay = document.createElement("p");
+    pricePerDay.textContent = price + "€ / jour"; 
 
     articlePage.appendChild(divProfil);
-    // articlePage.appendChild(divWidget);
-    // divWidget.appendChild(pricePerDay);
+    articlePage.appendChild(divWidget);
+    divWidget.appendChild(totalLike);
+    divWidget.appendChild(pricePerDay);
     divProfil.appendChild(h1Page);
     divProfil.appendChild(h2Page);
     divProfil.appendChild(h3Page);
@@ -78,6 +84,14 @@ function mediaFactory(data) {
   const moovie = `assets/photographers/${photographerId}/${video}`;
   const heart = `assets/icons/heart.png`
   // const sumLike = media.map(item => item.likes).reduce((prev ,curr) => prev + curr, 0);
+ 
+  // const ID = media.find(data => data === "likes")
+  // console.log(ID);
+
+  // const LIKE = media.likes
+  // LIKE.sort((a,b) => {
+  //   return a - b;
+  // })
 
   function getMediaCardDOMPage() {
     const divMedia = document.createElement("div");
@@ -123,7 +137,7 @@ function mediaFactory(data) {
         })
       }
     })
-    // /** Affichage du total de like*/ 
+    /** Affichage du total de like*/ 
     // const totalLikes = document.createElement("p");
     // totalLikes.setAttribute("class","totalLikes");
     // totalLikes.textContent = sumLike;
@@ -143,17 +157,19 @@ function mediaFactory(data) {
 /** CREATION du widget en bas de page*/ 
 
 function widgetFactory (data) {
-  const { photographerId, likes , price} = data;
+  const { photographerId, price} = data;
   const heart = `assets/icons/heartBlack.png`
+  
+  const sumLike = 5000
+  // const sumLike = media.map(item => item.likes).reduce((prev ,curr) => prev + curr, 0);
 
   function getWidgetCardDOMPage () {
   /** Widget*/
   const divWidget = document.createElement("div");
   divWidget.setAttribute("class","divWidget")
   /** Nombre total de like*/ 
-  const sumLike = media.map(item => item.likes).reduce((prev ,curr) => prev + curr, 0);
   const numberOfLikes = document.createElement("p");
-  media.forEach(function(media) {
+  media.forEach(function() {
     if (photographerId === getPhotographerId()) {
       numberOfLikes.textContent = sumLike;
     }
@@ -242,14 +258,11 @@ function displayMedia() {
 /** Affichage du widget sur la page photographer.html */ 
 function displayWidget() {
   const widgetContainer = document.querySelector("#footerWidget")
-
-  media.forEach((media) => {
   if (media.photographerId === getPhotographerId()) {
     const widgetModelPage = widgetFactory(media);
     const WidgetCardDOMPage = widgetModelPage.getWidgetCardDOMPage();
     widgetContainer.appendChild(WidgetCardDOMPage);
   }
-  })
 }
 
 /** Affichage de la lightbox sur la page photographer.html */
@@ -317,3 +330,31 @@ async function initPage() {
 
 /** Appel de la fonction pour l'affichage des données du photopgraphe dans la page photographer.html  */
 initPage();
+
+
+
+/** ---------- AFFICHAGE DU TOTAL DES LIKES ---------- */
+function displayLikes() {
+  /** ---------- Elements du DOM ---------- */
+  const nbrLikes = document.querySelectorAll(".like-label");
+  const displayLikeCounter = document.querySelector(".counter-likes");
+
+  /** ---------- Variables ---------- */
+  let likesText = 0;
+  let totalLike = 0;
+  let arrayLikes = [];
+
+  nbrLikes.forEach((like) => {
+    likesText = parseInt(
+      like.textContent
+    ); /** Transforme en nombre le texte à côté de l'input (label = nombre de like) */
+    arrayLikes.push(
+      likesText
+    ); /** Alimente le tableau "arrayLikes" du nombre de like de chaque média du photographe */
+    totalLike = arrayLikes.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }, 0); /** Calcule la somme du tableau */
+    return (displayLikeCounter.textContent =
+      totalLike + " "); /** Met à jour le total des likes du photographe */
+  });
+}
