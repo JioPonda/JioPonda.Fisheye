@@ -1,584 +1,353 @@
-@media screen and (max-width : 1920px) {
-
-    #contact_modal {
-        display: none;
-    }
-
-    h1 {
-        margin: 0;
-    }
-
-    .photograph-header {
-        background-color: #FAFAFA;
-        height: 300px;
-        margin: 0 100px;
-        display: flex;
-        flex-direction: row;
-    }
-
-    .photograph-header section {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-    }
-
-    .divProfil {
-        display: flex;
-        flex-direction: column;
-        height: 250px;
-        width: 20vw;
-        margin: 80px 0% 0% 5vw;
-    }
-
-    .widget {
-        height: 50px;
-        width: 376px;
-        position: fixed;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        background-color: #DB8876;
-        margin: 1350px 0 0 75vw;
-        z-index: 3;
-    }
-
-    .widget p {
-        font-weight: 500;
-        font-size: 24px;
-    }
-
-    .photograph-header section div h1 {
-        color: #D3573C;
-        font-weight: 400;
-        font-size: 34px;
-    }
-
-    .photograph-header section div h2 {
-        color: #901C1C;
-        font-weight: 400;
-    }
-
-    .photograph-header img {
-        margin: 0% 0% 0% 46vw;
-        height: 250px;
-        width: 250px;
-        border-radius: 200px;
-    }
-
-    #sorting {
-        display: flex;
-        flex-direction: row;
-        margin: 45px 0 0 4vw;
-    }
-
-    #sorting p {
-        font-size: 18px;
-        font-weight: bold;
-        margin: 0px 0 0 2vw;
-    }
-
-    #select {
-        position: absolute;
-        display: flex;
-        height: 25px;
-        width: 7vw;
-        background-color: #901C1C;
-        border-radius: 5px;
-        margin: -10px 0 0 7.5vw;
-        padding: 0.5%;
-    }
-
-    #select a {
-        position: absolute;
-        color: #FFFF;
-        font-size: 18px;
-        margin: 0px 0 0 0.6vw;
-    }
-
-    #menu {
-        height: 100px;
-        width: 7.8vw;
-        border-radius: 5px;
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: -10px 0 0 7.5vw;
-        padding: 0.1%;
-        background-color: #901C1C;
-        display: none;
-    }
-
-    #menu a {
-        color : #FFFF;
-        font-size: 18px;
-        margin: 11px 0 0 1vw;
-    }
-
-    #menu .border1 {
-        position: absolute;
-        height: 2px;
-        width: 6.5vw;
-        background-color: #FAFAFA;
-        margin: -22px 0 0 0.6vw;
-        z-index: 2;
-    }
-
-    #menu .border2 {
-        position: absolute;
-        height: 2px;
-        width: 6.5vw;
-        background-color: #FAFAFA;
-        margin: 48px 0 0 0.6vw;
-        z-index: 2;
-    }
-
-    #sorting .chevronSelect {
-        position: absolute;
-        height: 10px;
-        width: auto;
-        background-color: #901C1C;
-        margin: 5px 0 0 5.5vw;
-        padding: 2px;
-        transform: rotate(180deg);
-        cursor: pointer;
-        z-index: 2;
-    }
-
-    #menu .chevronMenu {
-        position: absolute;
-        height: 10px;
-        width: auto;
-        background-color: #901C1C;
-        margin: -60px 0 0 6vw;
-        padding: 2px;
-        cursor: pointer;
-        z-index: 2;
-    }
-
-    .photographer_section div {
-        margin: 0% 0% 0% 3.5vw;
-    }
-
-    .photographer_section div img {
-        height: 400px ;
-        width: 450px ;
-        border-radius: 5px;
-    }
-
-    .photographer_section div img:hover {
-        cursor: pointer;
-    }
-
-    .divTitle {
-        display: flex;
-        flex-direction: row;
-    }
-    
-    .photographer_section div h2 {
-        color: #901C1C;
-        font-size: 22px;
-        font-weight: 400;
-        margin-left: -3vw;
-    }
-
-    .photographer_section div p {
-        position: absolute;
-        color: #901C1C;
-        font-size: 24px;
-        font-weight: 400;
-        margin: 18px 0 0 16vw;
-    }
-    .photographer_section div .heart {
-        position: absolute;
-        height: 20px;
-        width: 20px;
-        margin: 23px 0 0 18vw;
-    }
-
-    .video {
-        height: 400px;
-        width: 450px;
-        background-color: black;
-    }
-
-    .contact_button {
-        position: absolute;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-        padding: 11px;
-        width: 170px;
-        height: 70px;
-        border: none;
-        background-color: #901C1C;
-        border-radius: 5px;
-        cursor: pointer;
-        margin: 117px 0% 0% 40vw;
-    }
-
-    .send_button {
-        position: absolute;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-        padding: 11px;
-        width: 170px;
-        height: 55px;
-        border: none;
-        background-color: #901C1C;
-        border-radius: 5px;
-        cursor: pointer;
-        margin: 478px 0% 0% 0vw;
-    }
-
-    .modal {
-        position: absolute;
-        border-radius: 5px;
-        background-color: #DB8876;
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        padding: 45px;
-        margin: 0px 0 0 25vw;
-    }
-
-    .modal header {
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    .modal header img {
-        cursor: pointer;
-    }
-
-    .modal header h2 {
-        font-size: 64px;
-        font-weight: normal;
-        text-align: center;
-    }
-
-    #lightBox {
-        display: none;
-    }
-
-    #lightBox_container {
-        height: 800px;
-        width: 1000px;
-        margin : 0vh 0% 0% 22vw;
-        overflow: hidden;
-    }
-    
-    .lightBoxSlide{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        height: 850px;
-        width: 1000px;
-    }
-
-    .ligthBoxElement img{
-        height: 800px;
-        width: 1000px;
-    }
-
-    .arrow {
-        position: absolute;
-        height: 80px;
-        width: 50px;
-        z-index: 2;
-    }
-
-    #L {
-        margin:  400px 0vw 0vh 18vw;
-        transform: rotate(180deg);
-    }
-
-    #R {
-        margin: 400px 0vw 0vh 75vw;
-    }
-
-
-    #L:hover {
-    cursor: pointer;
-    }
-
-    #R:hover {
-    cursor: pointer;
-    }
-
-    .crossLightBox {
-        position: absolute;
-        height: 50px;
-        width: 50px;
-        color: #911C1C;
-        margin: 20px 0 0 75vw;
-        cursor: pointer; 
-        z-index: 2;  
-    }
-
-    form {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    form label {
-        color: #312E2E;
-        font-size: 36px;
-    }
-
-    form div {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: self-start;
-        margin-bottom: 26px;
-    }
-
-    form input {
-        width: 100%;
-        height: 68px;
-        border: none;
-        border-radius: 5px;
-    }
+#contact_modal {
+    display: none;
 }
 
-@media screen and (max-width: 1440px) {
-    #contact_modal {
-        display: none;
+h1 {
+    margin: 0;
+}
+
+.photograph-header {
+    background-color: #FAFAFA;
+    height: 300px;
+    margin: 0 100px;
+    display: flex;
+    flex-direction: row;
+}
+
+.photograph-header section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.divProfil {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    width: 20vw;
+    margin: 80px 0% 0% 5vw;
+}
+
+.photograph-header section div h1 {
+    color: #D3573C;
+    font-weight: 400;
+    font-size: 34px;
+}
+
+.photograph-header section div h2 {
+    color: #901C1C;
+    font-weight: 400;
+}
+
+.photograph-header img {
+    margin: 0% 0% 0% 46vw;
+    height: 250px;
+    width: 250px;
+    border-radius: 200px;
+}
+
+#sorting {
+    display: flex;
+    flex-direction: row;
+    margin: 45px 0 0 4vw;
+}
+
+#sorting p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px 0 0 2vw;
+}
+
+#select {
+    position: absolute;
+    display: flex;
+    height: 25px;
+    width: 7vw;
+    background-color: #901C1C;
+    border-radius: 5px;
+    margin: -10px 0 0 7.5vw;
+    padding: 0.5%;
     }
 
-    h1 {
-        margin: 0;
-    }
+#select a {
+    position: absolute;
+    color: #FFFF;
+    font-size: 18px;
+    margin: 0px 0 0 0.6vw;
+}
 
-    .photograph-header {
-        background-color: #FAFAFA;
-        height: 300px;
-        margin: 0 100px;
-        display: flex;
-        flex-direction: row;
-    }
+#menu {
+    height: 100px;
+    width: 7.8vw;
+    border-radius: 5px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: -10px 0 0 7.5vw;
+    padding: 0.1%;
+    background-color: #901C1C;
+    display: none;
+}
 
-    .photograph-header section {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-    }
+#menu a {
+    color : #FFFF;
+    font-size: 18px;
+    margin: 11px 0 0 1vw;
+}
 
-    .divProfil {
-        display: flex;
-        flex-direction: column;
-        height: 250px;
-        width: 20vw;
-        margin: 80px 0% 0% 5vw;
-    }
+#menu .border1 {
+    position: absolute;
+    height: 2px;
+    width: 6.5vw;
+    background-color: #FAFAFA;
+    margin: -22px 0 0 0.6vw;
+    z-index: 2;
+}
 
-    .widget {
-        height: 50px;
-        width: 376px;
-        position: fixed;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        background-color: #DB8876;
-        margin: 1010px 0 0 68vw;
-    }
+#menu .border2 {
+    position: absolute;
+    height: 2px;
+    width: 6.5vw;
+    background-color: #FAFAFA;
+    margin: 48px 0 0 0.6vw;
+    z-index: 2;
+}
 
-    .widget p {
-        font-weight: 500;
-        font-size: 24px;
-    }
-
-    .photograph-header section div h1 {
-        color: #D3573C;
-        font-weight: 400;
-        font-size: 34px;
-    }
-
-    .photograph-header section div h2 {
-        color: #901C1C;
-        font-weight: 400;
-    }
-
-    .photograph-header img {
-        margin: 0% 0% 0% 40vw;
-        height: 220px;
-        width: 220px;
-        border-radius: 200px;
-    }
-
-    .photographer_section div {
-        margin: 0% 0% 0% 2vw;
-    }
-
-    .photographer_section div img {
-        height: 300px ;
-        width: 350px ;
-    }
-
-    .photographer_section div img:hover {
-        cursor: pointer;
-    }
-
-    .photographer_section div h2 {
-        color: #901C1C;
-        font-size: 24px;
-        font-weight: 400;
-    }
-
-    .video {
-        background-color: black;
-    }
-
-    .contact_button {
-        position: absolute;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-        padding: 11px;
-        width: 170px;
-        height: 70px;
-        border: none;
-        background-color: #901C1C;
-        border-radius: 5px;
-        cursor: pointer;
-        margin: 117px 0% 0% 37vw;
-    }
-
-    .send_button {
-        position: absolute;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-        padding: 11px;
-        width: 170px;
-        height: 55px;
-        border: none;
-        background-color: #901C1C;
-        border-radius: 5px;
-        cursor: pointer;
-        margin: 478px 0% 0% 0vw;
-    }
-
-    .modal {
-        position: absolute;
-        border-radius: 5px;
-        background-color: #DB8876;
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        padding: 45px;
-        margin: 0px 0 0 25vw;
-    }
-
-    .modal header {
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    .modal header img {
-        cursor: pointer;
-    }
-
-    .modal header h2 {
-        font-size: 64px;
-        font-weight: normal;
-        text-align: center;
-    }
-
-    #lightBox {
-        display: none;
-    }
-
-    #lightBox_container {
-        height: 1000px;
-        width: 1500px;
-        display: flex;
-        margin : 0vh 0% 0% 25vw;
-        position: relative;
-    }
-    
-    .lightBoxSlide{
-        height: 850px;
-        width: 1000px;
-    }
-    
-    .ligthBoxElement img{
-        height: 100%;
-        width: 100%;
-    }
-
-
-    .arrow {
-        position: absolute;
-        height: 80px;
-        width: 50px;
-        z-index: 2;
-    }
-
-    #L {
-        margin:  300px 0vw 0vh -5vw;
-        transform: rotate(180deg);
-    }
-
-    #R {
-        margin: 300px 0vw 0vh 43vw;
-    }
-
-
-    #L:hover {
+#sorting .chevronSelect {
+    position: absolute;
+    height: 10px;
+    width: auto;
+    background-color: #901C1C;
+    margin: 5px 0 0 5.5vw;
+    padding: 2px;
+    transform: rotate(180deg);
     cursor: pointer;
-    }
+    z-index: 2;
+}
 
-    #R:hover {
+#menu .chevronMenu {
+    position: absolute;
+    height: 10px;
+    width: auto;
+    background-color: #901C1C;
+    margin: -60px 0 0 6vw;
+    padding: 2px;
     cursor: pointer;
-    }
+    z-index: 2;
+}
 
-    .crossLightBox {
-        position: absolute;
-        height: 50px;
-        width: 50px;
-        color: #911C1C;
-        margin: 25px 0 0 43vw;
-        cursor: pointer;   
-        z-index: 2;
-    }
+.photographer_section div {
+    margin: 0% 0% 0% 3.5vw;
+}
 
-    form {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.photographer_section div img {
+    height: 400px ;
+    width: 450px ;
+    border-radius: 5px;
+}
 
-    form label {
-        color: #312E2E;
-        font-size: 36px;
-    }
+.photographer_section div img:hover {
+    cursor: pointer;
+}
 
-    form div {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: self-start;
-        margin-bottom: 26px;
-    }
+.divTitle {
+    display: flex;
+    flex-direction: row;
+}
+    
+.photographer_section div h2 {
+    color: #901C1C;
+    font-size: 22px;
+    font-weight: 400;
+    margin-left: -3vw;
+}
 
-    form input {
-        width: 100%;
-        height: 68px;
-        border: none;
-        border-radius: 5px;
-    }
+.photographer_section div p {
+    position: absolute;
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 18px 0 0 16vw;
+}
+
+.photographer_section div .heart {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    margin: 23px 0 0 18vw;
+}
+
+.video {
+    height: 400px;
+    width: 450px;
+    background-color: black;
+}
+
+.contact_button {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 117px 0% 0% 40vw;
+}
+
+.send_button {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 55px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 478px 0% 0% 0vw;
+}
+
+.modal {
+    position: absolute;
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 45px;
+    margin: 0px 0 0 25vw;
+}
+
+.modal header {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.modal header img {
+    cursor: pointer;
+}
+
+.modal header h2 {
+    font-size: 64px;
+    font-weight: normal;
+    text-align: center;
+}
+
+#lightBox {
+    display: none;
+}
+
+#lightBox_container {
+    height: 800px;
+    width: 1000px;
+    margin : 0vh 0% 0% 22vw;
+    overflow: hidden;
+}
+    
+.lightBoxSlide{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 850px;
+    width: 1000px;
+}
+
+.ligthBoxElement img{
+    height: 800px;
+    width: 1000px;
+}
+
+.arrow {
+    position: absolute;
+    height: 80px;
+    width: 50px;
+    z-index: 2;
+}
+
+#L {
+    margin:  400px 0vw 0vh 18vw;
+    transform: rotate(180deg);
+}
+
+#R {
+    margin: 400px 0vw 0vh 75vw;
+}
+
+
+#L:hover {
+cursor: pointer;
+}
+
+#R:hover {
+cursor: pointer;
+}
+
+.crossLightBox {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    color: #911C1C;
+    margin: 20px 0 0 75vw;
+    cursor: pointer; 
+    z-index: 2;  
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    color: #312E2E;
+    font-size: 36px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: self-start;
+    margin-bottom: 26px;
+}
+
+form input {
+    width: 100%;
+    height: 68px;
+    border: none;
+    border-radius: 5px;
+}
+
+.widget {
+    height: 50px;
+    width: 376px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    background-color: #DB8876;
+    z-index: 3;
+}
+
+.widget p {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.widget .heartWidget {
+    height: 25px;
+    width: 25px;
 }
