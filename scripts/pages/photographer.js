@@ -81,6 +81,7 @@ function mediaFactory(data) {
 
   function getMediaCardDOMPage() {
     const divMedia = document.createElement("div");
+    divMedia.setAttribute("class" , "divMedia");
     /** Vidéo du photographe */
     const iVideo = document.createElement("video");
     iVideo.setAttribute("class" , "video");
@@ -277,4 +278,13 @@ async function initPage() {
 initPage();
 
 
+
+/** Faire une fonction avec un addeventlistner sur les lien dans le menu de tris*/
+/** Faire un tableau des divMedia puis les triès */
+/** Afficher les résultat */  
+
+
+/** Faire une fonction avec un addeventlistner sur les lien dans le menu de tris*/
+/** Faire un tableau des divMedia puis les triès */
+/** Faire un block pour chaque tris et les faire switcher avec un display.style block et none pour chaque tris*/ 
 

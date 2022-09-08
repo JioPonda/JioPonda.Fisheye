@@ -329,6 +329,14 @@ form input {
     border-radius: 5px;
 }
 
+#footerWidget {
+    position: fixed;
+    height: 50px;
+    width: 376px;
+    top: 890px;
+    left: 80vw;
+}
+
 .widget {
     height: 50px;
     width: 376px;
