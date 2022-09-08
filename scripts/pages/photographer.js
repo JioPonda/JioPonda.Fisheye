@@ -125,6 +125,7 @@ function mediaFactory(data) {
       }
     })
   
+    /** Affichage du nombre de like total du vidéaste*/ 
     const sumLike = document.querySelector(".totalLike");
     const nbrLikes = document.querySelectorAll(".like");
     let likesText = 0;
@@ -137,6 +138,19 @@ function mediaFactory(data) {
       total = arrayLikes.reduce((accumulator, currentValue) => accumulator + currentValue , 0); /** Calcule la somme du tableau */
       sumLike.textContent = total + " "; /** Met à jour le total des likes du photographe */ 
     });
+
+    /** Systeme de tris des photos */ 
+    const containerDivMedia = document.querySelector(".photographer_section");
+    const sortPopular = document.querySelector(".Popular");
+    const sortDate = document.querySelector(".Date");
+    const sortTitle = document.querySelector(".Titre");
+    const allDivMedia = document.querySelectorAll(".divMedia");
+
+    let arrayDivMedia = [];
+
+    allDivMedia.forEach((div) => {
+      
+    })
 
     divTitle.appendChild(iTitle);
     divTitle.appendChild(iLike);
@@ -280,6 +294,8 @@ initPage();
 
 
 /** Faire une fonction avec un addeventlistner sur les lien dans le menu de tris*/
+
+
 /** Faire un tableau des divMedia puis les triès */
 /** Afficher les résultat */  
 
