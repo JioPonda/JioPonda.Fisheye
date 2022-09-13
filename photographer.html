@@ -2,75 +2,86 @@
 <html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/photographer.css">
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="./assets/images/minilogo.png" />
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <title>Fisheye - photographe</title>
   </head>
   <body>
-    <header>
-      <a href="./index.html"><img src="assets/images/logo.png" class="logo" /></a>
+    <header role="banner">
+      <a href="./index.html" id="logo" aria-label="Redirige vers la page d'accueil">
+        <img src="assets/images/logo.png" role="link" class="logo" alt="Fisheye home page"/>
+      </a>
     </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button aria-describedby="Bouton permettant de contacter le photographe" class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-      <div id="sorting">
-        <p>Trier par :</p>
-        <div id="select">
-          <img class="chevronSelect" src="assets/icons/chevron.png" onclick="displayMenu()">
-          <a href="#">Popularité</a>
+    <main id="main" aria-hidden="false">
+      <section class="photograph-header"></section>
+      <section id="listbox">
+        <label id="listbox-label" for="trier" role="input label">Trier par</label>
+        <div class="listbox-custom">
+          <select id="listbox-container" name="select" id="selection">
+            <option value="popularite">Popularité</option>
+            <option value="date">Date</option>
+            <option value="titre">Titre</option>
+          </select>
         </div>
-        <div id="menu">
-          <img class="chevronMenu" src="assets/icons/chevron.png" onclick="closeMenu()">
-          <a class="Popular">Popularité</a>
-          <div class="border1"></div>
-          <a class="Date" href="#">Date</a>
-          <div class="border2"></div>
-          <a class="Titre" href="#">Titre</a>
-        </div>
-      </div>
-      <section class="photographer_section">
       </section>
-      <div id="footerWidget">
-        <div class="widget">
-          <p class="totalLike">0</p>
-          <img src="assets/icons/heartBlack.png" alt="" class="heartWidget">
-          <p class="price"></p>
-        </div>
-      </div>
+      <div class="photograph-galery"></div>
     </main>
-    <div id="contact_modal" aria-describedby="Modal de contacte">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+    
+    <div id="modal">
+      
+      <div class="contact-modal" role="dialog" aria-describedby="modal" aria-hidden="true" tabindex="-1">
+      
+        <header class="header-modal">
+          
+          <div class="contactNamePhotograph">
+            <span>Contactez-moi</span>
+            <br />
+            <div class="nameContact"></div>
+          </div>
+
+          <img src="assets/icons/close.svg" id="close-modal" alt="Close Contact form" onclick="closeModal()"/>
+    
         </header>
-				<form>
-					<div>
-						<label for="firstName">Prénom</label>
-						<input id="firstName" type="text"/>
-            <label for="lastName">Nom</label>
-            <input id="lastName" type="text"/>
-            <label for="email">Email</label>
-            <input id="email" type="text" />
-            <label for="message">Votre message</label>
-            <input id="message" type="text" />
-					</div>
-          <button type="reset" class="send_button" onclick="sendInfos() + closeModal()">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <div id="lightBox">
-      <img src="assets/icons/close_red.png" alt="croix de fermeture de la lightBox" class="crossLightBox" onclick="closeLightBox()">
-      <img src="assets/icons/arrow.png" alt="fleche de direction droite" class="arrow" id="R" onclick="preview()">
-      <img src="assets/icons/arrow.png" alt="fleche de direction gauche" class="arrow" id="L" onclick="next()">
-      <div id="lightBox_container">
-        <div class="lightBoxSlide"></div>
+    
+        <form name="form" action="" id="form">
+          <div>
+            <div class="first-container">
+              <label for="contact-first-name">Prénom</label>
+              <input class="text-control" type="text" id="contact-first-name" name="contact-first-name" aria-labelledby="contact-first-name" aria-required="true" required/>
+              <span class="message-error-contact" aria-invalid></span>
+            </div>
+            <div class="last-container">
+              <label for="contact-last-name">Nom</label>
+              <input class="text-control" type="text" id="contact-last-name" name="contact-last-name" aria-labelledby="contact-last-name" aria-required="true" required/>
+              <span class="message-error-contact" aria-invalid></span>
+            </div>
+            <div class="email-container">
+              <label for="contact-email">Email</label>
+              <input class="text-control" type="email" id="contact-email" name="contact-email" aria-labelledby="contact-email" aria-required="true" required/>
+              <span class="message-error-contact" aria-invalid></span>
+            </div>
+            <div class="message-container">
+              <label for="contact-message">Votre message</label>
+              <input class="text-control" type="text" id="contact-message" name="contact-message" aria-labelledby="contact-message" aria-required="true" required/>
+              <span class="message-error-contact" aria-invalid></span>
+            </div>
+          </div>
+          <input role="button" class="contact-button" type="submit" value="Envoyer" aria-label="Send"/>
+        </form>
+      
       </div>
     </div>
+    
+    <div id="lightbox" role="dialog" aria-label="image closeup view" aria-hidden="true" tabindex="1">
+      <div id="lightbox-container"></div>
+      <button onclick="closeLightbox()" id="lightbox-icon-close" aria-label="Close dialog"> x </button>
+      <button id="prev" aria-label="Previous image" role="link" tabindex="1"> < </button>
+      <button id="next" aria-label="Next image" role="link" tabindex="1"> > </button>
     </div>
+
+    <footer class="widget"></footer>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
