@@ -1,0 +1,20 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    
+    "extends": "eslint:recommended",
+    
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    
+    "rules": { 
+        "eqeqeq": "warn",
+        "indent": ["warn", 2, { "SwitchCase": 1 }],
+        "multiline-ternary": ["warn", "always-multiline"],
+        "no-console": ["warn", "off"],
+        "no-debugger": ["warn", "off"]
+    }
+}
