@@ -1,0 +1,380 @@
+/** -------------------- En-tête de la page photographer.html -------------------- */
+.photograph-header {
+    background-color: #fafafa;
+    margin: 0 5vw 0 5vw;
+    padding: 2.4%;
+  }
+  
+  .photograph-header section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .photograph-header section h1 {
+    color: #d3573c;
+    font-size: 2.625em;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .photograph-header section h2 {
+    color: #901c1c;
+    font-size: 1.5em;
+    font-weight: normal;
+    margin: 0;
+  }
+  
+  .photograph-header section h3 {
+    color: #000;
+    font-size: 1em;
+    font-weight: normal;
+  }
+  
+  .photograph-header section h6 {
+    color: #d3573c;
+    font-size: 2em;
+    margin: 0.6em 0 0 0;
+  }
+  .photograph-header section img {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+  }
+  
+  /** -------------------- Galerie de la page photographer.html -------------------- */
+  .photograph-galery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 50px 5vw 50px 5vw;
+  }
+  
+  .photograph-galery figure {
+    cursor: pointer;
+  }
+  
+  .photograph-galery figure img {
+    height: 450px;
+    width: 450px;
+    object-fit: cover;
+    border-radius: 5px;
+    object-position: center top;
+  }
+  
+  .photograph-galery figure video {
+    height: 450px;
+    width: 450px;
+    object-fit: cover;
+    border-radius: 5px;
+    object-position: center top;
+    max-width: 100%;
+  }
+  
+  .photograph-galery figcaption {
+    display: flex;
+    justify-content: space-between;
+    max-width: 50%;
+    white-space: nowrap;
+  }
+  
+  .photograph-galery figure span {
+    color: #911c1c;
+    font-size: 1.4em;
+    font-weight: normal;
+    margin-bottom: 50px;
+    margin-top: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /** -------------------- Like et dislike -------------------- */
+  input[type="checkbox"].like-input {
+    border: 0;
+    height: 50px;
+    margin: 0px 0 0 0.5vw;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 0.1em;
+  }
+  
+  input[type="checkbox"].like-input + label::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f004";
+    color: #901c1c;
+    padding: 0 0.5vw;
+    font-weight: 100;
+  }
+  input[type="checkbox"].like-input:checked + label::before {
+    font-weight: 900;
+  }
+  
+  .like-label {
+    color: #901c1c;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-right: -11vw;
+  }
+  
+  /** -------------------- Listbox - tri des médias--------------------*/
+  #listbox {
+    display: flex;
+    padding: 50px 0 0 5vw;
+  }
+  
+  #listbox-label {
+    font-weight: 800;
+    font-size: 1.25em;
+    display: flex;
+    align-items: center;
+    padding-right: 0.6vw;
+  }
+  
+  .listbox-custom {
+    color: white;
+    font-size: 1.25em;
+    font-weight: 800;
+  }
+  
+  .listbox-custom select {
+    display: none;
+  }
+  
+  .listbox-custom-new {
+    display: flex;
+    align-items: center;
+    background-color: #901c1c;
+    border-radius: 5px;
+    height: 60px;
+    width: 8vw;
+    cursor: pointer;
+    padding-left: 0.6vw;
+    position: relative;
+  }
+  
+  .select-items {
+    background-color: #901c1c;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 5;
+    cursor: pointer;
+    margin-top: -5px;
+  }
+  
+  .select-items div {
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+    width: 8vw;
+    border-top: solid #fafafa;
+    padding-left: 0.6vw;
+    cursor: pointer;
+  }
+  
+  .select-hide {
+    display: none;
+  }
+  
+  .active {
+    display: none;
+  }
+  
+  .listbox-custom-new::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f078";
+    position: absolute;
+    right: 0.5vw;
+  }
+  
+  .listbox-custom-new.active::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f077";
+  }
+  
+  /** -------------------- WIDGET de la page photographer.html -------------------- */
+  .widget aside {
+    position: fixed;
+    bottom: 0;
+    left: 76vw;
+    background-color: #db8876;
+    width: 20vw;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
+    font-size: 24px;
+    font-weight: 500;
+    z-index: 2;
+  }
+  
+  /* -------------------- LIGHTBOX -------------------- */
+  #lightbox {
+    color: #901c1c;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 3;
+  }
+  
+  #lightbox-container {
+    background-color: white;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    transform: translateX(0%);
+  }
+  
+  #lightbox-container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .slides-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    float: left;
+    z-index: 3;
+  }
+  
+  .slides {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .slide-media {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .lightbox-modal-media {
+    max-height: 40em;
+    max-width: 100%;
+    border-radius: 0.3em;
+    object-fit: contain;    
+  }
+  
+  #title-photo {
+    font-size: 1.5em;
+    margin: 0em;  
+    padding-top: 1em;
+  }
+  
+  /* -------------------- boutons CLOSE de la ligthbox -------------------- */
+  #lightbox-icon-close {
+    position: absolute;
+    top: 50px;
+    right: 8vw;
+    color: #901c1c;
+    background: none;
+    font-family: "DM Sans", sans-serif;
+    font-size: 6em;
+    font-style: normal;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* -------------------- boutons PREV et NEXT de la ligthbox -------------------- */
+  #prev, #next {
+    position: absolute;
+    top: 45vh;  
+    color: #901c1c;  
+    background: none;
+    font-family: "DM Sans", sans-serif;  
+    font-size: 6em;
+    font-weight: 200;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* -------------------- Position des boutons PREV et NEXT de la ligthbox -------------------- */
+  #prev {
+    left: 10vw;
+  }
+  
+  #next {
+    right: 10vw;
+  }
+  
+  /* -------------------- BOUTON DU FORMULAIRE DE CONTACT -------------------- */
+  .contact-button {
+    color: white;
+    background-color: #901c1c;
+    font-size: 1.25em;
+    width: 8vw;
+    height: 70px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* -------------------- FORMULAIRE DE CONTACT -------------------- */
+  #modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(196, 196, 196, 0.4);
+    overflow: auto;
+  }
+  
+  .contact-modal {
+    background-color: #db8876;
+    width: 40%;
+    margin: 25px 0 0 28vw;
+    padding: 1.5%;
+    border-radius: 5px;
+  }
+  
+  .header-modal {
+    height: 150px;
+  }
+  
+  #modal header img {
+    cursor: pointer;
+  }
+  
+  #modal header span {
+    font-size: 3.4em;
+  }
+  
+  form label {
+    color: #312e2e;
+    font-size: 1.9em;
+    margin-top: 25px;
+  }
+  
+  form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  form input {
+    width: 100%;
+    height: 80px;
+    font-size: 1.6em;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .form-button {
+    margin-top: 25px;
+  }
