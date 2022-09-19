@@ -100,7 +100,7 @@ function photographerFactory(data) {
     const btnContact = document.createElement("button");
     btnContact.setAttribute("class","contact-button");
     btnContact.setAttribute("onclick", "openModal()");
-    btnContact.setAttribute("aria-label", "Contact Me");
+    btnContact.setAttribute("aria-label", "Contactez-moi");
     btnContact.textContent = "Contactez-moi";
 
     /** Portrait du photographe */
