@@ -192,7 +192,7 @@ function galeryFactory(data) {
     likeInput.setAttribute("id", id);
     likeInput.setAttribute("class" , "like-input");
     likeInput.setAttribute("role", "img");
-    likeInput.setAttribute("aria-label", "likes");
+    likeInput.setAttribute("aria-label", "Bouton likes");
     likeInput.setAttribute("tabindex", "0");
 
     /** LABEL des likes */
