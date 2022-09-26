@@ -176,8 +176,31 @@ function addClic() {
       displayLikes(); /** Rappel de la fonction d'affichage des likes du photopgraphe */
     });
   });
-}
   
+  likesInput.forEach((likeInput) => {
+    likeInput.addEventListener("keydown" , (e) => {
+      if (e.key === "Enter") {  
+        /** ---------- Variables ---------- */
+        let likeText = parseInt(e.target.nextSibling.textContent); /** Transforme en nombre le texte à côté de l'input (label = nombre de like) */
+        let liked = e.target.nextSibling; /** Texte du label (nombre de like) */
+        let maker = e.currentTarget; /** Input cible */
+    
+        /** Si l'input cible est non checké */
+        if (maker.checked) {
+          likeText--; /** Décremente le label */
+          maker.checked = false;
+          /** Si l'input cible est checké */
+        } else {
+          likeText++; /** Incrémente le label */
+          maker.checked = true;
+        }
+        liked.textContent = likeText; /** Modifie le label */
+        displayLikes(); /** Rappel de la fonction d'affichage des likes du photopgraphe */
+      }
+    });
+  })
+}
+
 /** ---------- AFFICHAGE DU TOTAL DES LIKES ---------- */
 function displayLikes() {
   /** ---------- Elements du DOM ---------- */

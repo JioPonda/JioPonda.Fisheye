@@ -320,6 +320,11 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .contact-button:hover {
+    color: black;
+    background-color: #DB8876;
+  }
   
   /* -------------------- FORMULAIRE DE CONTACT -------------------- */
   #modal {
